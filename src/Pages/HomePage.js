@@ -50,7 +50,7 @@ const HomePage = () => {
 		},
 	];
 	return (
-		<>
+		<div className="home-page-mega-div">
 			{/* Home Page Title Div */}
 			<div className="homepage-title-box">
 				{/* Home Page Title */}
@@ -120,7 +120,7 @@ const HomePage = () => {
 					></path>
 				</svg>
 			</div>
-		</>
+		</div>
 	);
 };
 export default HomePage;
