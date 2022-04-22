@@ -1,0 +1,93 @@
+.market-profile-body {
+	height: calc(100vh - 80px);
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	mix-blend-mode: difference;
+	padding: 20px;
+}
+
+.market-profile-bar {
+	width: calc(100%);
+	height: 75px;
+	display: flex;
+	margin-bottom: 20px;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.43)), linear-gradient(270deg, #29ffed 0%, #d260ff 100%);
+	border-radius: 20px;
+	justify-content: space-around;
+	align-items: center;
+	overflow: hidden;
+}
+
+/* Create New Profile Button  */
+.market-profile-new-profile-btn {
+	margin: 30px;
+	--c: black;
+	background: white;
+	color: var(--c);
+	font-size: 15px;
+	border: 0.3em solid var(--c);
+	border-radius: 0.5em;
+	width: 20%;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: "Quicksand";
+	letter-spacing: 0.1em;
+	text-align: center;
+	line-height: 2em;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	transition: 0.5s;
+	margin: 1em;
+}
+
+.market-profile-new-profile-btn span {
+	position: absolute;
+	width: 25%;
+	height: 100%;
+	background-color: var(--c);
+	transform: translateY(150%);
+	border-radius: 50%;
+	left: calc((var(--n) - 1) * 25%);
+	transition: 0.5s;
+	transition-delay: calc((var(--n) - 1) * 0.1s);
+	z-index: -1;
+}
+
+.market-profile-new-profile-btn:hover {
+	color: white;
+	border: 4px white solid;
+	cursor: pointer;
+}
+
+.market-profile-new-profile-btn:hover span {
+	transform: translateY(0) scale(4);
+}
+
+.market-profile-new-profile-btn span:nth-child(1) {
+	--n: 1;
+}
+
+.market-profile-new-profile-btn span:nth-child(2) {
+	--n: 2;
+}
+
+.market-profile-new-profile-btn span:nth-child(3) {
+	--n: 3;
+}
+
+.market-profile-new-profile-btn span:nth-child(4) {
+	--n: 4;
+}
+
+/* Main Display for Marketer's Profile  */
+.market-profile-main-display{
+    height: calc(100vh - 215px);
+	width: 100%;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.43)), linear-gradient(270deg, #29ffed 0%, #d260ff 100%);
+	border-radius: 30px;
+	overflow-y: scroll;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 30px;
+}

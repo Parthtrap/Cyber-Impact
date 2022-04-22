@@ -35,7 +35,7 @@ const Header = (props) => {
 				{/* Buttons for Header */}
 				<div className="header-buttons">
 					<div className="header-body-components">
-						<a href="./Login">
+						<a href="./MarketProfile">
 							<div className="header-body-components-item">Market Profile</div>
 						</a>
 					</div>
@@ -50,9 +50,6 @@ const Header = (props) => {
 			<div style={dropdownListStyle} className="header-dropdown">
 				<a href="./Login">
 					<div className="header-dropdown-items">Log Out</div>
-				</a>
-				<a href="./Login">
-					<div className="header-dropdown-items">Market Profile</div>
 				</a>
 			</div>
 		</div>
