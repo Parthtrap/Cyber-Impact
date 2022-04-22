@@ -4,6 +4,51 @@ import HomePageFeaturesCards from "./../Components/HomePageFeaturesCard";
 import { Fade } from "react-reveal";
 
 const HomePage = () => {
+	window.addEventListener("scroll", scrollEventListener);
+	var answer;
+	var styles;
+	function scrollEventListener() {
+		const winScroll = document.querySelector(".wavebottom").getBoundingClientRect().bottom;
+
+		const winScrollh = document.querySelector(".wavebottom").getBoundingClientRect().bottom + window.scrollY;
+
+		answer = 1 - winScroll / winScrollh;
+		styles = { transform: `translateX(${answer * 90}vw)` };
+		document.getElementById("wavebottom").style.setProperty("transform", `translateX(-${answer * 90}vw)`);
+		console.log(answer);
+		console.log(styles);
+	}
+
+	const FeaturesArray = [
+		{
+			id: 1,
+			text: "Description 1",
+		},
+		{
+			id: 2,
+			text: "Description 2",
+		},
+		{
+			id: 3,
+			text: "Description 3",
+		},
+		{
+			id: 4,
+			text: "Description 4",
+		},
+		{
+			id: 5,
+			text: "Description 5",
+		},
+		{
+			id: 6,
+			text: "Description 6",
+		},
+		{
+			id: 7,
+			text: "Description 7",
+		},
+	];
 	return (
 		<>
 			{/* Home Page Title Div */}
