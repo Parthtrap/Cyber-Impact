@@ -39,7 +39,7 @@ const LoginPage = () => {
 							<a href="./forgotpassword">Forgot Password?</a>
 						</div>
 						<input className="login-submit-button" onClick={submitPressed} type="submit" value="Login" />
-						<div className="signup_link">
+						<div className="login-page-signup-link">
 							Not Signed Up? <a href="./Signup">User Signup</a>
 						</div>
 					</form>
