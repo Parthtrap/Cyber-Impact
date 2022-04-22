@@ -6,38 +6,44 @@ import FrontPage from "./Pages/Portal/FrontPage";
 import ForgotPassword from "./Pages/Authentication/ForgotPassword";
 import Header from "./Components/Header";
 import SignUpPage from "./Pages/Authentication/SignUpPage";
+import MarketProfile from "./Pages/Portal/MarketProfile";
 
 function App() {
-	return (
-		<>
-			<Switch>
-				<Route exact path="/">
-					<Navbar login={true} />
-					<HomePage />
-				</Route>
+  return (
+    <>
+      <Switch>
+        <Route exact path="/">
+          <Navbar login={true} />
+          <HomePage />
+        </Route>
 
-				<Route exact path="/Login">
-					<Navbar login={false} />
-					<LoginPage />
-				</Route>
+        <Route exact path="/Login">
+          <Navbar login={false} />
+          <LoginPage />
+        </Route>
 
-				<Route exact path="/SignUp">
-					<Navbar login={false} />
-					<SignUpPage />
-				</Route>
+        <Route exact path="/SignUp">
+          <Navbar login={false} />
+          <SignUpPage />
+        </Route>
 
-				<Route exact path="/ForgotPassword">
-					<Navbar login={false} />
-					<ForgotPassword />
-				</Route>
+        <Route exact path="/ForgotPassword">
+          <Navbar login={false} />
+          <ForgotPassword />
+        </Route>
 
-				<Route exact path="/FrontPage">
-					<Header />
-					<FrontPage />
-				</Route>
-			</Switch>
-		</>
-	);
+        <Route exact path="/FrontPage">
+          <Header />
+          <FrontPage />
+        </Route>
+
+        <Route exact path="/MarketProfile">
+          <Header MarketProfileBtn={false} />
+          <MarketProfile />
+        </Route>
+      </Switch>
+    </>
+  );
 }
 
 export default App;

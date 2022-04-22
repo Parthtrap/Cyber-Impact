@@ -8,7 +8,7 @@ const MarketProfile = () => {
           id="market-profile-new-profile-btn"
           className="market-profile-new-profile-btn"
         >
-          Add New Profile
+          <a href="./ProfileForm">Add New Profile</a>
           <span></span>
           <span></span>
           <span></span>
