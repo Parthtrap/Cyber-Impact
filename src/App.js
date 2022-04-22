@@ -2,23 +2,28 @@ import { Route, Switch } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import LoginPage from "./Pages/Authentication/LoginPage";
 import HomePage from "./Pages/HomePage";
+import FrontPage from "./Pages/Portal/FrontPage";
 
 function App() {
-	return (
-		<>
-			<Switch>
-				<Route exact path="/">
-					<Navbar login={true} />
-					<HomePage />
-				</Route>
+  return (
+    <>
+      <Switch>
+        <Route exact path="/">
+          <Navbar login={true} />
+          <HomePage />
+        </Route>
 
-				<Route exact path="/Login">
-					<Navbar login={false} />
-					<LoginPage />
-				</Route>
-			</Switch>
-		</>
-	);
+        <Route exact path="/Login">
+          <Navbar login={false} />
+          <LoginPage />
+        </Route>
+
+        <Route exact path="/FrontPage">
+          <FrontPage />
+        </Route>
+      </Switch>
+    </>
+  );
 }
 
 export default App;
