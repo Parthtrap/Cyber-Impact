@@ -4,6 +4,7 @@ import LoginPage from "./Pages/Authentication/LoginPage";
 import HomePage from "./Pages/HomePage";
 import FrontPage from "./Pages/Portal/FrontPage";
 import ForgotPassword from "./Pages/Authentication/ForgotPassword";
+import Header from "./Components/Header";
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 				</Route>
 
 				<Route exact path="/FrontPage">
+					<Header />
 					<FrontPage />
 				</Route>
 			</Switch>
