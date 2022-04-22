@@ -34,7 +34,7 @@ const Navbar = (props) => {
 							≡
 						</button>
 						<div className="navbar-body-components">
-							<a href="./UserLogin">
+							<a href="./Login">
 								<div className="navbar-body-components-item">Log In</div>
 							</a>
 						</div>
@@ -44,7 +44,7 @@ const Navbar = (props) => {
 				)}
 			</div>
 			<div style={dropdownListStyle} className="navbar-dropdown">
-				<a href="./UserLogin">
+				<a href="./Login">
 					<div className="navbar-dropdown-items">Log In</div>
 				</a>
 			</div>

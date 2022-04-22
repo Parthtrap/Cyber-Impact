@@ -1,0 +1,12 @@
+{
+	"Categories": ["No Category", "Clothes", "Food", "Education", "Electrical", "Medical", "Services"],
+	"Professions": {
+		"No Category": ["No Professions"],
+		"Clothes": ["Dextor", "Clothes Shop", "Tailor"],
+		"Food": ["Grocerries", "Restraunt"],
+		"Electrical": ["Appliances", "Mobiles", "Laptops", "Accessories", "Electric repair"],
+		"Education": ["Stationary", "Book Store", "Libraries"],
+		"Medical": ["Clinics", "Medical"],
+		"Services": ["Train reservations", "Flight reservations", "Property Management", "Architect", "Labor"]
+	}
+}

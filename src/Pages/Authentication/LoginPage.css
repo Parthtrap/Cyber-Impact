@@ -1,151 +1,154 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 .login-page-div {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
-    justify-content: center;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	justify-content: center;
 }
 
 .login-form-div {
-    margin-top: calc(80px + 5%);
-    min-width: 400px;
-    min-height: 450px;
-    max-height: 67%;
-    padding: 10px;
-    position: absolute;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 15px;
+	margin-top: calc(80px + 5%);
+	min-width: 400px;
+	min-height: 450px;
+	max-height: 67%;
+	padding: 10px;
+	position: absolute;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 15px;
 }
 
 .login-form-title {
-    font-weight: 800;
-    font-size: 50px;
-    background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	font-weight: 800;
+	font-size: 50px;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
 
-    border-bottom: 6px solid transparent;
-    border-image: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
-    border-image-slice: 1;
+	border-bottom: 6px solid transparent;
+	border-image: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	border-image-slice: 1;
 
-    padding-bottom: 20px;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding-top: 10px;
-    background-size: 100% 1px;
-    padding-bottom: 20px;
-    text-align: center;
+	padding-bottom: 20px;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	padding-top: 10px;
+	background-size: 100% 1px;
+	padding-bottom: 20px;
+	text-align: center;
 }
 
 .login-form-div form {
-    padding: 0 40px;
-    box-sizing: border-box;
+	overflow-x: visible;
+	padding: 0 40px;
+	box-sizing: border-box;
 }
 
 form .txt_field {
-    position: relative;
-    border-bottom: 2px solid #adadad;
-    margin: 30px 0;
+	overflow-x: visible;
+	position: relative;
+	border-bottom: 2px solid #adadad;
+	margin: 30px 0;
 }
 
 .txt_field input {
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
-    color: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
-    font-size: 16px;
-    border: none;
-    background: none;
-    outline: none;
+	width: 100%;
+	overflow-x: visible;
+	padding: 0 5px;
+	height: 40px;
+	color: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	font-size: 16px;
+	border: none;
+	background: none;
+	outline: none;
 }
 
 .txt_field label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    color: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
-    transform: translateY(-50%);
-    font-size: 16px;
-    pointer-events: none;
-    transition: 0.5s;
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	color: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	transform: translateY(-50%);
+	font-size: 16px;
+	pointer-events: none;
+	transition: 0.5s;
 }
 
 .txt_field span::before {
-    content: "";
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
-    transition: 0.5s;
+	content: "";
+	position: absolute;
+	top: 40px;
+	left: 0;
+	width: 0%;
+	height: 2px;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	transition: 0.5s;
 }
 
 .txt_field input:focus ~ label,
 .txt_field input:valid ~ label {
-    top: -5px;
-    background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+	top: -5px;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .txt_field input:focus ~ span::before,
 .txt_field input:valid ~ span::before {
-    width: 100%;
+	width: 100%;
 }
 
 .pass {
-    margin: -5px 0 20px 5px;
-    color: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
-    cursor: pointer;
+	margin: -5px 0 20px 5px;
+	color: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	cursor: pointer;
 }
 
 .pass:hover {
-    background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration: underline;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-decoration: underline;
 }
 
-.user-login-submit-button {
-    width: 100%;
-    height: 50px;
-    border: 1px solid;
-    margin: 3px;
-    margin-bottom: 16px;
-    background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
-    border-radius: 25px;
-    font-size: 18px;
-    color: #e9f4fb;
-    font-weight: 700;
-    cursor: pointer;
-    outline: none;
+.login-submit-button {
+	width: 100%;
+	height: 50px;
+	border: 1px solid;
+	margin: 3px;
+	margin-bottom: 16px;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	border-radius: 25px;
+	font-size: 18px;
+	color: #e9f4fb;
+	font-weight: 700;
+	cursor: pointer;
+	outline: none;
 }
 
-.user-login-submit-button:hover {
-    border-color: black;
-    border-width: 2px;
+.login-submit-button:hover {
+	border-color: black;
+	border-width: 2px;
 
-    transition: 0.5s;
+	transition: 0.5s;
 }
 
 .signup_link {
-    /* margin: 30px 0; */
-    margin: 10px;
-    text-align: center;
-    font-size: 16px;
+	/* margin: 30px 0; */
+	margin: 10px;
+	text-align: center;
+	font-size: 16px;
 }
 
 .signup_link a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .signup_link a:hover {
-    text-decoration: underline;
-    background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+	text-decoration: underline;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
