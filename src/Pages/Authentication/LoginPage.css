@@ -46,14 +46,14 @@
 	box-sizing: border-box;
 }
 
-form .txt_field {
+form .login-page-txt-field {
 	overflow-x: visible;
 	position: relative;
 	border-bottom: 2px solid #adadad;
 	margin: 30px 0;
 }
 
-.txt_field input {
+.login-page-txt-field input {
 	width: 100%;
 	overflow-x: visible;
 	padding: 0 5px;
@@ -65,7 +65,7 @@ form .txt_field {
 	outline: none;
 }
 
-.txt_field label {
+.login-page-txt-field label {
 	position: absolute;
 	top: 50%;
 	left: 5px;
@@ -76,7 +76,7 @@ form .txt_field {
 	transition: 0.5s;
 }
 
-.txt_field span::before {
+.login-page-txt-field span::before {
 	content: "";
 	position: absolute;
 	top: 40px;
@@ -87,16 +87,16 @@ form .txt_field {
 	transition: 0.5s;
 }
 
-.txt_field input:focus ~ label,
-.txt_field input:valid ~ label {
+.login-page-txt-field input:focus ~ label,
+.login-page-txt-field input:valid ~ label {
 	top: -5px;
 	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
-.txt_field input:focus ~ span::before,
-.txt_field input:valid ~ span::before {
+.login-page-txt-field input:focus ~ span::before,
+.login-page-txt-field input:valid ~ span::before {
 	width: 100%;
 }
 
