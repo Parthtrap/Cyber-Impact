@@ -51,6 +51,9 @@ const Header = (props) => {
 				<a href="./Login">
 					<div className="header-dropdown-items">Log Out</div>
 				</a>
+				<a href="./Login">
+					<div className="header-dropdown-items">Market Profile</div>
+				</a>
 			</div>
 		</div>
 	);

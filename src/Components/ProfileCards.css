@@ -1,6 +1,10 @@
 .profile-card-main-div {
 	width: 40vw;
+	min-width: 400px;
 	height: 25vh;
-	background-color: black;
+	background-color: white;
+	border-radius: 20px;
 	margin: 10px;
+	border: 5px black;
+	border-style: double;
 }
