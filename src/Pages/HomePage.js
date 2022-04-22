@@ -21,32 +21,25 @@ const HomePage = () => {
 	const FeaturesArray = [
 		{
 			id: 1,
-			text: "Description 1",
+			text: "Find the closest quality stores, clinics, etc. conviniently from the comfort of your home",
 		},
 		{
 			id: 2,
-			text: "Description 2",
+			text: "Quickly search stores nearest to you using filters",
 		},
 		{
 			id: 3,
-			text: "Description 3",
+			text: "Choose the ideal stores using our global-rating system",
 		},
 		{
 			id: 4,
-			text: "Description 4",
+			text: "Contact and keep a check on the stores you frequently visit",
 		},
 		{
 			id: 5,
-			text: "Description 5",
+			text: "Perfect platform for market users to promote and advertise their stores",
 		},
-		{
-			id: 6,
-			text: "Description 6",
-		},
-		{
-			id: 7,
-			text: "Description 7",
-		},
+	
 	];
 	return (
 		<div className="home-page-mega-div">
