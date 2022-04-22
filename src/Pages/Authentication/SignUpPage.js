@@ -32,32 +32,32 @@ const SignUpPage = () => {
 				<div className="signup-form-div">
 					<h1 className="signup-form-title">USER SIGNUP</h1>
 					<form method="post">
-						<div class="txt_field">
+						<div class="signup-page-txt-field">
 							<input type="username" onChange={updateUsername} required />
 							<span></span>
 							<label> Username</label>
 						</div>
 
-						<div class="txt_field">
+						<div class="signup-page-txt-field">
 							<input type="text" onChange={updateEmail} required />
 							<span></span>
 							<label> Email Address</label>
 						</div>
 
-						<div class="txt_field">
+						<div class="signup-page-txt-field">
 							<input type="password" onChange={updatePassword} required />
 							<span></span>
 							<label> Password</label>
 						</div>
 
-						<div class="txt_field">
+						<div class="signup-page-txt-field">
 							<input type="password" onChange={updateConfirmPassword} required />
 							<span></span>
 							<label> Re-confirm Password</label>
 						</div>
 
 						<input type="submit" value="Make an Account" onClick={submitPressed} />
-						<div class="signup_link">
+						<div class="signup-page-signup-link">
 							Already a User? <a href="./Login">User Login</a>
 						</div>
 					</form>

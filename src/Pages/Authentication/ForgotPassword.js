@@ -29,7 +29,7 @@ const ForgotPassword = () => {
 
 						<input className="forgetpassword-submit-button" onClick={submitPressed} type="submit" value="ForgotPassword" />
 						<div class="forgot-password-forgot-link">
-							Not a member? <a href="./UserSignup">Signup</a>
+							Not a member? <a href="./SignUp">Signup</a>
 						</div>
 					</form>
 				</div>
