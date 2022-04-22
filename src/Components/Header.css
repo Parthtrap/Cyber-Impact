@@ -33,6 +33,10 @@ a {
     display: none;
 }
 
+.header-buttons{
+    display: flex;
+}
+
 .header-body-components {
     display: flex;
 }
