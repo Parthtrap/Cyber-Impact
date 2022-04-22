@@ -163,6 +163,7 @@
 /* Search Button */
 .wrapper {
 	position: relative;
+	overflow-x: visible;
 	display: inline-flex;
 	min-width: 100px;
 }

@@ -5,6 +5,7 @@ import HomePage from "./Pages/HomePage";
 import FrontPage from "./Pages/Portal/FrontPage";
 import ForgotPassword from "./Pages/Authentication/ForgotPassword";
 import Header from "./Components/Header";
+import SignUpPage from "./Pages/Authentication/SignUpPage";
 
 function App() {
 	return (
@@ -18,6 +19,11 @@ function App() {
 				<Route exact path="/Login">
 					<Navbar login={false} />
 					<LoginPage />
+				</Route>
+
+				<Route exact path="/SignUp">
+					<Navbar login={false} />
+					<SignUpPage />
 				</Route>
 
 				<Route exact path="/ForgotPassword">

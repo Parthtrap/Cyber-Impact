@@ -81,7 +81,6 @@ const FrontPage = () => {
 	};
 
 	const searchBarChange = (e) => {
-		// console.log(e.target.value);
 		setSearchBarText(e.target.value);
 		if (e.target.value.length != 0) setSearchIconStyle(vissibleIconStyle);
 		else setSearchIconStyle(hiddenIconStyle);
@@ -175,6 +174,13 @@ const FrontPage = () => {
 				</div>
 			</div>
 			<div className="user-frontpage-filtered-list-display">
+				<ProfileCards data={data} />
+				<ProfileCards data={data} />
+				<ProfileCards data={data} />
+				<ProfileCards data={data} />
+				<ProfileCards data={data} />
+				<ProfileCards data={data} />
+				<ProfileCards data={data} />
 				<ProfileCards data={data} />
 			</div>
 		</div>
