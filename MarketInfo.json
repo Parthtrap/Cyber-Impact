@@ -1,0 +1,213 @@
+[
+<<<<<<< HEAD
+  {
+    "BusinessID": "rklncyi2o8r2uncor4",
+    "BusinessName": "Parthtrap Tailors",
+    "PhoneNumber": "94738563824",
+    "OwnerID": "3jh52n5iu4fsgev",
+    "Address": "Agra, UP",
+    "latitude": 35.4345453,
+    "longitude": 34.5675856,
+    "Rating": 4.5,
+    "Reviews": [
+      {
+        "RaterID": "hu34brku3hrbku4",
+        "Rating": 5,
+        "Review": "Dope AF"
+      },
+      {
+        "RaterID": "ergiueyivu3tnv",
+        "Rating": 4,
+        "Review": "Meh"
+      }
+    ],
+    "OpeningTime": "3PM",
+    "ClosingTime": "9PM",
+    "Profession": "tailor",
+    "ImageURL": "dgferf.in/fgrcwfwf/wfcwfw"
+  },
+  {
+    "BusinessID": "hgjhk42tf34t43daad",
+    "BusinessName": "Parthtrap Tailors",
+    "PhoneNumber": "94738563824",
+    "OwnerID": "3jh52n5iu4fsgev",
+    "Address": "Agra, UP",
+    "latitude": 35.4345453,
+    "longitude": 34.5675856,
+    "Rating": 4.5,
+    "Reviews": [
+      {
+        "RaterID": "hu34brku3hrbku4",
+        "Rating": 5,
+        "Review": "Dope AF"
+      },
+      {
+        "RaterID": "ergiueyivu3tnv",
+        "Rating": 4,
+        "Review": "Meh"
+      }
+    ],
+    "OpeningTime": "3PM",
+    "ClosingTime": "9PM",
+
+    "ImageURL": "dgferf.in/fgrcwfwf/wfcwfw"
+  },
+  {
+    "BusinessID": "rklncyi2o8r2uncor4",
+    "BusinessName": "Parthtrap Tailors",
+    "PhoneNumber": "94738563824",
+    "OwnerID": "3jh52n5iu4fsgev",
+    "Address": "Agra, UP",
+    "latitude": 35.4345453,
+    "longitude": 34.5675856,
+    "Rating": 4.5,
+    "Reviews": [
+      {
+        "RaterID": "hu34brku3hrbku4",
+        "Rating": 5,
+        "Review": "Dope AF"
+      },
+      {
+        "RaterID": "ergiueyivu3tnv",
+        "Rating": 4,
+        "Review": "Meh"
+      }
+    ],
+    "OpeningTime": "3PM",
+    "ClosingTime": "9PM",
+    "Profession": "tailor",
+    "ImageURL": "dgferf.in/fgrcwfwf/wfcwfw"
+  },
+  {
+    "BusinessID": "rklncyi2o8r2uncor4",
+    "BusinessName": "Parthtrap Tailors",
+    "PhoneNumber": "94738563824",
+    "OwnerID": "3jh52n5iu4fsgev",
+    "Address": "Agra, UP",
+    "latitude": 35.4345453,
+    "longitude": 34.5675856,
+    "Rating": 4.5,
+    "Reviews": [
+      {
+        "RaterID": "hu34brku3hrbku4",
+        "Rating": 5,
+        "Review": "Dope AF"
+      },
+      {
+        "RaterID": "ergiueyivu3tnv",
+        "Rating": 4,
+        "Review": "Meh"
+      }
+    ],
+    "OpeningTime": "3PM",
+    "ClosingTime": "9PM",
+    "Profession": "tailor",
+    "ImageURL": "dgferf.in/fgrcwfwf/wfcwfw"
+  }
+=======
+	{
+		"BusinessID": "rklncyi2o8r2uncor4",
+		"BusinessName": "Parthtrap Tailors",
+		"PhoneNumber": "94738563824",
+		"OwnerID": "3jh52n5iu4fsgev",
+		"Address": "Agra, UP",
+		"latitude": 35.4345453,
+		"longitude": 34.5675856,
+		"Rating": 4.5,
+		"Reviews": [
+			{
+				"RaterID": "hu34brku3hrbku4",
+				"Rating": 5,
+				"Review": "Dope AF"
+			},
+			{
+				"RaterID": "ergiueyivu3tnv",
+				"Rating": 4,
+				"Review": "Meh"
+			}
+		],
+		"OpeningTime": "3PM",
+		"ClosingTime": "9PM",
+		"Profession": "tailor",
+		"ImageURL": "dgferf.in/fgrcwfwf/wfcwfw"
+	},
+	{
+		"BusinessID": "hgjhk42tf34t43daad",
+		"BusinessName": "Parthtrap Tailors",
+		"PhoneNumber": "94738563824",
+		"OwnerID": "3jh52n5iu4fsgev",
+		"Address": "Agra, UP",
+		"latitude": 35.4345453,
+		"longitude": 34.5675856,
+		"Rating": 4.5,
+		"Reviews": [
+			{
+				"RaterID": "hu34brku3hrbku4",
+				"Rating": 5,
+				"Review": "Dope AF"
+			},
+			{
+				"RaterID": "ergiueyivu3tnv",
+				"Rating": 4,
+				"Review": "Meh"
+			}
+		],
+		"OpeningTime": "3PM",
+		"ClosingTime": "9PM",
+
+		"ImageURL": "dgferf.in/fgrcwfwf/wfcwfw"
+	},
+	{
+		"BusinessID": "rklncyi2o8r2uncor4",
+		"BusinessName": "Parthtrap Tailors",
+		"PhoneNumber": "94738563824",
+		"OwnerID": "3jh52n5iu4fsgev",
+		"Address": "Agra, UP",
+		"latitude": 35.4345453,
+		"longitude": 34.5675856,
+		"Rating": 4.5,
+		"Reviews": [
+			{
+				"RaterID": "hu34brku3hrbku4",
+				"Rating": 5,
+				"Review": "Dope AF"
+			},
+			{
+				"RaterID": "ergiueyivu3tnv",
+				"Rating": 4,
+				"Review": "Meh"
+			}
+		],
+		"OpeningTime": "3PM",
+		"ClosingTime": "9PM",
+		"Profession": "tailor",
+		"ImageURL": "dgferf.in/fgrcwfwf/wfcwfw"
+	},
+	{
+		"BusinessID": "rklncyi2o8r2uncor4",
+		"BusinessName": "Parthtrap Tailors",
+		"PhoneNumber": "94738563824",
+		"OwnerID": "3jh52n5iu4fsgev",
+		"Address": "Agra, UP",
+		"latitude": 35.4345453,
+		"longitude": 34.5675856,
+		"Rating": 4.5,
+		"Reviews": [
+			{
+				"RaterID": "hu34brku3hrbku4",
+				"Rating": 5,
+				"Review": "Dope AF"
+			},
+			{
+				"RaterID": "ergiueyivu3tnv",
+				"Rating": 4,
+				"Review": "Meh"
+			}
+		],
+		"OpeningTime": "3PM",
+		"ClosingTime": "9PM",
+		"Profession": "tailor",
+		"ImageURL": "dgferf.in/fgrcwfwf/wfcwfw"
+	}
+>>>>>>> 279aa94cc0df59c947a5b330efc7caf30c365d38
+]
