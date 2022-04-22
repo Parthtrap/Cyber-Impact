@@ -1,5 +1,22 @@
+import { Route, Switch } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+
 function App() {
-	return <div>Brand new Project... HELL yeah!!! Lets a go</div>;
+  return (
+    <>
+      <Switch>
+        <Route exact path="/">
+          {/* <Navbar login={true} /> */}
+          <HomePage />
+        </Route>
+
+        <Route exact path="/HomePage">
+          {/* <Navbar login={true} /> */}
+          <HomePage />
+        </Route>
+      </Switch>
+    </>
+  );
 }
 
 export default App;
