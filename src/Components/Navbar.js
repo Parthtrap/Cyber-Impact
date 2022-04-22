@@ -43,11 +43,17 @@ const Navbar = (props) => {
 					""
 				)}
 			</div>
-			<div style={dropdownListStyle} className="navbar-dropdown">
-				<a href="./Login">
-					<div className="navbar-dropdown-items">Log In</div>
-				</a>
-			</div>
+			{props.login ? (
+				<>
+					<div style={dropdownListStyle} className="navbar-dropdown">
+						<a href="./Login">
+							<div className="navbar-dropdown-items">Log In</div>
+						</a>
+					</div>
+				</>
+			) : (
+				""
+			)}
 		</div>
 	);
 };
