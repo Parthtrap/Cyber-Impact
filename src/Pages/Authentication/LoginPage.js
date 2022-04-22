@@ -23,23 +23,23 @@ const LoginPage = () => {
 				<div className="login-form-div">
 					<h1 className="login-form-title">LOGIN</h1>
 					<form>
-						<div class="txt_field">
+						<div className="login-page-txt-field">
 							<input onChange={updateEmail} type="text" required />
 							<span></span>
 							<label>Email</label>
 						</div>
 
-						<div class="txt_field">
+						<div className="login-page-txt-field">
 							<input onChange={updatePassword} type="password" required />
 							<span></span>
 							<label> Password</label>
 						</div>
 
-						<div class="pass">
+						<div className="pass">
 							<a href="./forgotpassword">Forgot Password?</a>
 						</div>
 						<input className="login-submit-button" onClick={submitPressed} type="submit" value="Login" />
-						<div class="signup_link">
+						<div className="signup_link">
 							Not Signed Up? <a href="./Signup">User Signup</a>
 						</div>
 					</form>
