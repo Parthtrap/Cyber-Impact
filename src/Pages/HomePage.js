@@ -4,19 +4,18 @@ import HomePageFeaturesCards from "./../Components/HomePageFeaturesCard";
 import { Fade } from "react-reveal";
 
 const HomePage = () => {
+	// Declaring Variables
+	var answer; // Decimal value of scrolling
+	var styles; // Updated Styles
+
+	// Adding Event Listener on Scroll
 	window.addEventListener("scroll", scrollEventListener);
-	var answer;
-	var styles;
 	function scrollEventListener() {
 		const winScroll = document.querySelector(".wavebottom").getBoundingClientRect().bottom;
-
 		const winScrollh = document.querySelector(".wavebottom").getBoundingClientRect().bottom + window.scrollY;
-
 		answer = 1 - winScroll / winScrollh;
 		styles = { transform: `translateX(${answer * 90}vw)` };
 		document.getElementById("wavebottom").style.setProperty("transform", `translateX(-${answer * 90}vw)`);
-		console.log(answer);
-		console.log(styles);
 	}
 
 	const FeaturesArray = [
