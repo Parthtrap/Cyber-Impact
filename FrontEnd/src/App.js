@@ -14,7 +14,7 @@ import ProfileView from "./Pages/Portal/ProfileView";
 import FavouritesPage from "./Pages/Portal/FavouritesPage";
 
 function App() {
-  const auth = useContext(AuthContext);
+	const auth = useContext(AuthContext);
 
   return !auth.isLoggedIn ? (
     <>
@@ -24,20 +24,20 @@ function App() {
           <HomePage />
         </Route>
 
-        <Route exact path="/Login">
-          <Navbar login={false} />
-          <LoginPage />
-        </Route>
+				<Route exact path="/Login">
+					<Navbar login={false} />
+					<LoginPage />
+				</Route>
 
-        <Route exact path="/SignUp">
-          <Navbar login={false} />
-          <SignUpPage />
-        </Route>
+				<Route exact path="/SignUp">
+					<Navbar login={false} />
+					<SignUpPage />
+				</Route>
 
-        <Route exact path="/ForgotPassword">
-          <Navbar login={false} />
-          <ForgotPassword />
-        </Route>
+				<Route exact path="/ForgotPassword">
+					<Navbar login={false} />
+					<ForgotPassword />
+				</Route>
 
         <Route exact path="/*">
           <Redirect to="/" />
@@ -59,13 +59,9 @@ function App() {
           <Header MarketProfileBtn={true} />
           <ProfileForm />
         </Route>
-        <Route exact path="/ProfileView">
+        <Route exact path="/ProfileView/:mid">
           <Header MarketProfileBtn={true} />
           <ProfileView />
-        </Route>
-        <Route exact path="/FavouritesPage">
-          <Header MarketProfileBtn={true} />
-          <FavouritesPage />
         </Route>
         <Route exact path="/*">
           <Redirect to="/" />

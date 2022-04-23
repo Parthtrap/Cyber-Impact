@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
         ref : "Market"
     }],
     markets : [{
-        type : mongoose.Types.ObjectId,
+        type : String,
         ref: "Market"
     }]
 

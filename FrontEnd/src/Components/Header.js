@@ -34,7 +34,7 @@ const Header = (props) => {
       <div className="header-body">
         <div className="header-body-title">
           <img className="header-logo" src={headerLogo} alt="No Image" />
-          <Link to="./FrontPage">Cyber Impact</Link>
+          <Link to="/FrontPage">Cyber Impact</Link>
         </div>
 
         <button className="header-dropdown-button" onClick={dropdownHandler}>
@@ -58,14 +58,14 @@ const Header = (props) => {
           )}
 
           <div className="header-body-components">
-            <Link to="./" onClick={LogoutHandler}>
+            <Link to="/" onClick={LogoutHandler}>
               <div className="header-body-components-item">Log Out</div>
             </Link>
           </div>
         </div>
       </div>
       <div style={dropdownListStyle} className="header-dropdown">
-        <Link to="./" onClick={LogoutHandler}>
+        <Link to="/" onClick={LogoutHandler}>
           <div className="header-dropdown-items">Log Out</div>
         </Link>
 
