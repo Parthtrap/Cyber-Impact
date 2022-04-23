@@ -6,7 +6,7 @@
 
 .feature-card {
   width: 350px;
-  height: 450px;
+  height: 400px;
   text-align: center;
   overflow: hidden;
   border-radius: 50px;
@@ -19,15 +19,16 @@
 }
 
 .feature-card img {
-  width: 120px;
-  height: 120px;
-  border-radius: 100px;
+  width: 140px;
+  height: 140px;
+  border-radius: 20px;
+  border: 5px white solid;
 }
 
 .feature-card h3 {
-  margin-top: 20px;
-  font-size: 15px;
-  font-weight: 400;
+  margin-top: 35px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .feature-card:hover {

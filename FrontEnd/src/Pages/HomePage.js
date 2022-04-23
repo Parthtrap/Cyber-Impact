@@ -132,8 +132,19 @@ const HomePage = () => {
         </svg>
 
         <div className="about-website-textbox">
-          <h1>About Us</h1>
-          <h3>We Rock</h3>
+          <div className="about-website-textbox-title">About Us</div>
+          <div className="about-website-text">
+            Our team's vision for this Hack36 is to create a healthy platform
+            where every local buisness have an equal opportunity to expand their
+            reach.
+          </div>
+          <div className="about-website-info">
+            <div className="about-website-info-title">Our Team</div>
+            <li>Parth Mittal(Leader)</li>
+            <li>Ariyan Habib Seikh(Leader)</li>
+            <li>Parth Mittal(Leader)</li>
+            <li>Parth Mittal(Leader)</li>
+          </div>
         </div>
         <br />
 
