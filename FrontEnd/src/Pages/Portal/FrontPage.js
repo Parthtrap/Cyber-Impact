@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./FrontPage.css";
-import ProfileCards from "./../../Components/ProfileCards";
+import ProfileCards from "../../Components/ProfileCards";
 
 const FrontPage = () => {
 	const data = {

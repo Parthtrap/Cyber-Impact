@@ -5,6 +5,8 @@ const port = 5000;
 
 //extracting routers
 const userRouters = require("./routers/user-routers");
+const marketRouters = require("./routers/market-routers");
+
 
 // for parsering json file
 const bodyParser = require("body-parser");
@@ -29,7 +31,7 @@ app.use((req, res, next) => {
 
 //setting api
 app.use("/api/user", userRouters);
-// app.use("/api/market", marketRouters);
+app.use("/api/market", marketRouters);
 
 //setting the server port
 app.listen(port, () => console.log(`Server listening on port ${port}`));
