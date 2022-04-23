@@ -13,61 +13,61 @@ import AuthContext from "./context/auth-context";
 import ProfileView from "./Pages/Portal/ProfileView";
 
 function App() {
-  const auth = useContext(AuthContext);
+	const auth = useContext(AuthContext);
 
-  return auth.isLoggedIn ? (
-    <>
-      <Switch>
-        <Route exact path="/">
-          <Navbar login={true} />
-          <HomePage />
-        </Route>
+	return !auth.isLoggedIn ? (
+		<>
+			<Switch>
+				<Route exact path="/">
+					<Navbar login={true} />
+					<HomePage />
+				</Route>
 
-        <Route exact path="/Login">
-          <Navbar login={false} />
-          <LoginPage />
-        </Route>
+				<Route exact path="/Login">
+					<Navbar login={false} />
+					<LoginPage />
+				</Route>
 
-        <Route exact path="/SignUp">
-          <Navbar login={false} />
-          <SignUpPage />
-        </Route>
+				<Route exact path="/SignUp">
+					<Navbar login={false} />
+					<SignUpPage />
+				</Route>
 
-        <Route exact path="/ForgotPassword">
-          <Navbar login={false} />
-          <ForgotPassword />
-        </Route>
+				<Route exact path="/ForgotPassword">
+					<Navbar login={false} />
+					<ForgotPassword />
+				</Route>
 
-        <Route exact path="/*">
-          <Redirect to="/" />
-        </Route>
-      </Switch>
-    </>
-  ) : (
-    <>
-      <Switch>
-        <Route exact path="/">
-          <Header MarketProfileBtn={true} />
-          <FrontPage />
-        </Route>
-        <Route exact path="/MarketProfile">
-          <Header MarketProfileBtn={false} />
-          <MarketProfile />
-        </Route>
-        <Route exact path="/ProfileForm">
-          <Header MarketProfileBtn={true} />
-          <ProfileForm />
-        </Route>
-        <Route exact path="/ProfileView">
-          <Header MarketProfileBtn={true} />
-          <ProfileView />
-        </Route>
-        <Route exact path="/*">
-          <Redirect to="/" />
-        </Route>
-      </Switch>
-    </>
-  );
+				<Route exact path="/*">
+					<Redirect to="/" />
+				</Route>
+			</Switch>
+		</>
+	) : (
+		<>
+			<Switch>
+				<Route exact path="/">
+					<Header MarketProfileBtn={true} />
+					<FrontPage />
+				</Route>
+				<Route exact path="/MarketProfile">
+					<Header MarketProfileBtn={false} />
+					<MarketProfile />
+				</Route>
+				<Route exact path="/ProfileForm">
+					<Header MarketProfileBtn={true} />
+					<ProfileForm />
+				</Route>
+				<Route exact path="/ProfileView">
+					<Header MarketProfileBtn={true} />
+					<ProfileView />
+				</Route>
+				<Route exact path="/*">
+					<Redirect to="/" />
+				</Route>
+			</Switch>
+		</>
+	);
 }
 
 export default App;

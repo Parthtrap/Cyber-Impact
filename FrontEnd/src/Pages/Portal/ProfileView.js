@@ -1,6 +1,13 @@
+import { useState } from "react";
 import "./ProfileView.css";
 
 const ProfileView = () => {
+	const [favoriteCheck, setFavoriteCheck] = useState(false);
+
+	const toggleFavorite = () => {
+		setFavoriteCheck(!favoriteCheck);
+	};
+
 	const data = {
 		BusinessID: "rklncyi2o8r2uncor4",
 		BusinessName: "Parthtrap Tailors",
@@ -31,7 +38,10 @@ const ProfileView = () => {
 	return (
 		<div className="profile-view-body">
 			<div className="profile-view-main-display-place-thingy">
-				<div className="profile-view-body-title">{data.BusinessName}</div>
+				<div className="profile-view-body-title">
+					{data.BusinessName}
+					{favoriteCheck ? <i class="star" onClick={toggleFavorite}></i> : <i class="star-hidden" onClick={toggleFavorite}></i>}
+				</div>
 
 				<div className="profile-view-info">
 					<div className="profile-view-text-section">
