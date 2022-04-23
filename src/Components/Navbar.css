@@ -24,6 +24,29 @@ a {
 	height: 80px;
 }
 
+/* Navbar Animation */
+.navbar-body-title{
+	display: flex;
+	animation: title-animation 1s;
+}
+
+@keyframes title-animation {
+  0% {
+    transform: translate(-20px);
+    opacity: 0;
+  }
+}
+
+/* Navbar Logo  */
+.navbar-logo{
+	position: relative;
+	height: 35px;
+	width: 35px;
+	margin: 5px;
+	margin-right: 10px;
+	border-radius: 100%;
+}
+
 .navbar-body-title a {
 	font-weight: 900;
 	font-size: 30px;

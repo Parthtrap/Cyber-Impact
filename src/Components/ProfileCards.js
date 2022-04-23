@@ -1,7 +1,8 @@
 import "./ProfileCards.css";
 
 const ProfileCards = (props) => {
-	return <div className="profile-card-main-div"></div>;
+  console.log(props.data.BusinessName);
+  return <div className="profile-card-main-div">{props.data.BusinessName}</div>;
 };
 export default ProfileCards;
 

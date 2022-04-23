@@ -1,4 +1,5 @@
 import { useState } from "react";
+import headerLogo from "./../Media/logo.png";
 import "./Header.css";
 
 const Header = (props) => {
@@ -25,6 +26,7 @@ const Header = (props) => {
     <div className="header-main-div">
       <div className="header-body">
         <div className="header-body-title">
+          <img className="header-logo" src={headerLogo} alt="No Image" />
           <a href="./FrontPage">Cyber Impact</a>
         </div>
 
