@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import navbarLogo from "./../Media/logo.png";
 import "./Navbar.css";
 
@@ -27,7 +28,7 @@ const Navbar = (props) => {
       <div className="navbar-body">
         <div className="navbar-body-title">
           <img className="navbar-logo" src={navbarLogo} alt="No Image" />
-          <a href="./">Cyber Impact</a>
+          <Link to="./">Cyber Impact</Link>
         </div>
 
         {props.login ? (
@@ -39,9 +40,9 @@ const Navbar = (props) => {
               ≡
             </button>
             <div className="navbar-body-components">
-              <a href="./Login">
+              <Link to="./Login">
                 <div className="navbar-body-components-item">Log In</div>
-              </a>
+              </Link>
             </div>
           </>
         ) : (
@@ -51,9 +52,9 @@ const Navbar = (props) => {
       {props.login ? (
         <>
           <div style={dropdownListStyle} className="navbar-dropdown">
-            <a href="./Login">
+            <Link to="./Login">
               <div className="navbar-dropdown-items">Log In</div>
-            </a>
+            </Link>
           </div>
         </>
       ) : (
