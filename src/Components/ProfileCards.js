@@ -4,3 +4,13 @@ const ProfileCards = (props) => {
 	return <div className="profile-card-main-div"></div>;
 };
 export default ProfileCards;
+
+/*data = {
+		BusinessName: "Parthtrap Tailors",
+		PhoneNumber: "94738563824",
+		Address: "Agra, UP",
+		Rating: 4.5,
+		OpeningTime: "3PM",
+		ClosingTime: "9PM",
+		Profession: "tailor",
+	};*/
