@@ -1,0 +1,5 @@
+.profile-view-body{height: calc(100vh - 80px);
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	mix-blend-mode: difference;
+	padding: 20px;
+}
