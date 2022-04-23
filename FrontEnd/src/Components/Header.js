@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import AuthContext from "../context/auth-context";
 import headerLogo from "./../Media/logo.png";
 import "./Header.css";
@@ -45,9 +46,9 @@ const Header = (props) => {
 					{props.MarketProfileBtn ? (
 						<>
 							<div className="header-body-components">
-								<a href="./MarketProfile">
+								<Link to="/MarketProfile">
 									<div className="header-body-components-item">Market Profile</div>
-								</a>
+								</Link>
 							</div>{" "}
 						</>
 					) : (
