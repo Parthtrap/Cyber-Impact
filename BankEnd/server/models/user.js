@@ -3,32 +3,33 @@ const mongoose = require("mongoose");
 
 //Schema for users
 const userSchema = new mongoose.Schema({
-    username : {
-        type : String,
-        required : [true , "Please enter username"],
-        unique : true,
-        maxlength : 25
+  username: {
+    type: String,
+    required: [true, "Please enter username"],
+    unique: true,
+    maxlength: 25,
+  },
+  email: {
+    type: String,
+    required: [true, "Please enter the email"],
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: [true, "Please enter a password"],
+    minlength: 8,
+  },
+  favourites: [
+    {
+      type: String,
     },
-    email : {
-        type : String,
-        required : [true, "Please enter the email"],
-        unique :true 
+  ],
+  markets: [
+    {
+      type: String,
     },
-    password : {
-        type : String,
-        required : [true, "Please enter a password"],
-        minlength : 8
-    },
-    favourites : [{
-        type : mongoose.Types.ObjectId, 
-        ref : "Market"
-    }],
-    markets : [{
-        type : String,
-        ref: "Market"
-    }]
-
+  ],
 });
 
 //exporting User modal
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);

@@ -115,8 +115,9 @@ const toggleAddFavMarket = async (req, res) => {
     res.status(401).json({ error: err });
   }
 
-  const existingMarket = user.markets.find((mid) => {
-    return mid == marketId;
+  const existingMarket = user.favourites.find((mid) => {
+    console.log(mid, marketId, mid === marketId);
+    return mid === marketId;
   });
   console.log("Existing market id : ", existingMarket);
 
@@ -129,36 +130,50 @@ const toggleAddFavMarket = async (req, res) => {
         { _id: userId },
         {
           $pull: {
-            markets: marketId,
+            favourites: marketId,
           },
         }
       );
       console.log("Market id removed from fav");
       console.log(userFav);
-      res.status(201).json({message : "Removed from fav", user: user});
-
+      try {
+        user = await User.findOne({ _id: userId });
+      } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: err.message });
+      }
+      res.status(201).json({ message: "Removed from fav", user: user });
+      return;
     } catch (err) {
       console.log(err.message);
+      res.status(500).json({ error: err.message });
+    }
+  } else {
+    //adding market to user collections favuorites array
+    try {
+      const userFav = await User.updateOne(
+        { _id: userId },
+        {
+          $push: {
+            favourites: marketId,
+          },
+        }
+      );
+      console.log("Market id added to fav");
+      console.log(userFav);
+      try {
+        user = await User.findOne({ _id: userId });
+      } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: err.message });
+      }
+      //resending data with 'OK' status code
+      res.status(201).json({ message: "Added to fav", user: user });
+    } catch (err) {
+      console.log(err.message);
+      res.status(500).json({ error: err.message });
     }
   }
-
-  //adding market to user collections favuorites array
-  try {
-    const userFav = await User.updateOne(
-      { _id: userId },
-      {
-        $push: {
-          markets: marketId,
-        },
-      }
-    );
-    console.log("Market id added to fav");
-    console.log(userFav);
-  } catch (err) {
-    console.log(err.message);
-  }
-  //resending data with 'OK' status code
-  res.status(201).json({message: "Added to fav", user: user});
 };
 
 exports.toggleAddFavMarket = toggleAddFavMarket;

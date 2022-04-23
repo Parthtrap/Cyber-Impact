@@ -52,10 +52,7 @@ const SignUpPage = () => {
 
 				// Email Password Uploaded as New account => Login
 				if (response.status === 201) {
-					auth.login({
-						username: responseData.user.username,
-						id: responseData.user._id,
-					});
+					auth.login(responseData.user);
 					console.log(responseData);
 				} else {
 					console.log(responseData.error);

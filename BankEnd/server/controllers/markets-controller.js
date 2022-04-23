@@ -95,7 +95,7 @@ const addMarket = async (req, res) => {
 const getUserMarkets = async (req, res) => {
   const ownerId = req.params.uid;
   console.log(ownerId);
-  console.log(typeof(ownerId));
+  console.log(typeof ownerId);
 
   let userMarkets;
   try {

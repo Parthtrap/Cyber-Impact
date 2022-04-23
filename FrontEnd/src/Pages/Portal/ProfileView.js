@@ -1,8 +1,41 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import AuthContext from "../../context/auth-context";
 import "./ProfileView.css";
 
 const ProfileView = () => {
+  const [isFavourite, setFavourite] = useState(false);
+  const auth = useContext(AuthContext);
+  console.log("fav", isFavourite);
+
+  const favoriteToggle = async () => {
+    try {
+      const sendData = JSON.stringify({
+        userId: auth.userId,
+        marketId: data.BusinessID,
+      });
+
+      const response = await fetch("http://localhost:5000/api/user/togglefav", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: sendData,
+      });
+
+      const responseData = await response.json();
+      if (response.status === 201) {
+        setFavourite(!isFavourite);
+        auth.login(responseData.user);
+        console.log(responseData);
+      } else {
+        console.log(responseData.error);
+      }
+    } catch (err) {
+      console.log(err);
+      return;
+    }
+  };
   const [data, setData] = useState({
     BusinessID: "randomID",
     BusinessName: "PlaceHolder",
@@ -45,7 +78,6 @@ const ProfileView = () => {
           console.log(responseData);
           const market = responseData.market;
           const marketData = {
-           
             BusinessID: market._id,
             BusinessName: market.title,
             PhoneNumber: market.phonenum,
@@ -64,8 +96,15 @@ const ProfileView = () => {
             OpeningTime: market.openingTime,
             ClosingTime: market.closingTime,
             Profession: market.profession,
-            ImageURL: market.imageURL
+            ImageURL: market.imageURL,
           };
+          const isFav = auth.user.favourites.find((data) => {
+            console.log(data, market._id, data === market._id);
+            return data === market._id;
+          });
+          if (isFav) {
+            setFavourite(true);
+          }
           setData(marketData);
         } else {
           console.log(responseData.error);
@@ -75,36 +114,20 @@ const ProfileView = () => {
       }
     };
     fetchMarket();
-  }, []);
+  }, [marketId]);
 
   console.log(data);
-
-  //   const data = {
-  //     BusinessID: market._id,
-  //     BusinessName: market.title,
-  //     PhoneNumber: market.phonenum,
-  //     OwnerID: market.ownerId,
-  //     Address: market.address,
-  //     latitude: market.location.lat,
-  //     longitude: market.location.lng,
-  //     Rating: market.rating,
-  //     Reviews: market.reviews.map((review) => {
-  //       return {
-  //         RaterID: review.raterID,
-  //         Rating: review.rating,
-  //         Review: review.review,
-  //       };
-  //     }),
-  //     OpeningTime: "3PM",
-  //     ClosingTime: "9PM",
-  //     Profession: "tailor",
-  //     ImageURL: "dgferf.in/fgrcwfwf/wfcwfw",
-  //   };
-
   return (
     <div className="profile-view-body">
       <div className="profile-view-main-display-place-thingy">
-        <div className="profile-view-body-title">{data.BusinessName}</div>
+        <div className="profile-view-body-title">
+          {data.BusinessName}{" "}
+          {isFavourite ? (
+            <div className="star" onClick={favoriteToggle}></div>
+          ) : (
+            <div className="star-hidden" onClick={favoriteToggle}></div>
+          )}{" "}
+        </div>
 
         <div className="profile-view-info">
           <div className="profile-view-text-section">

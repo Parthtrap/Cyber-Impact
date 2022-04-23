@@ -3,25 +3,22 @@ import { createContext, useState } from "react";
 const AuthContext = createContext({
   isLoggedIn: false,
   userId: null,
-  userName: null,
-  //   user: null,
-  //   markets: [],
-  //   settingMarkets : (data) =>{};
+  user : null,
   login: (user) => {},
   logout: () => {},
 });
 
 export const AuthContextProvider = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState(null);
   const [userId, setUserId] = useState(null);
+  const [user, setUser] = useState(null);
 
   const login = (user) => {
     localStorage.setItem("user", JSON.stringify(user));
     console.log(localStorage.getItem("user"));
     console.log(user);
-    setUserId(user.id);
-    setUserName(user.username);
+    setUserId(user._id);
+    setUser(user);
     setIsLoggedIn(true);
   };
 
@@ -29,7 +26,7 @@ export const AuthContextProvider = (props) => {
     localStorage.removeItem("user");
     setIsLoggedIn(false);
     setUserId(null);
-    setUserName(null);
+    setUser(null);
   };
 
   console.log(userId);
@@ -38,17 +35,14 @@ export const AuthContextProvider = (props) => {
     const userData = JSON.parse(user);
     console.log("not logged in",userData);
     if (userData) {
-      login({
-        id: userData.id,
-        username: userData.username,
-      });
+      login(userData);
     }
   }
 
   const context = {
     isLoggedIn: isLoggedIn,
     userId: userId,
-    userName: userName,
+    user: user,
     login: login,
     logout: logout,
   };

@@ -8,7 +8,7 @@ const userController = require("../controllers/users-controller");
 //setting rest APIs 
 router.post("/signup", userController.signup);
 router.post("/login", userController.login);
-router.purge("/togglefav", userController.toggleAddFavMarket);
+router.post("/togglefav", userController.toggleAddFavMarket);
 
 module.exports = router;
 
