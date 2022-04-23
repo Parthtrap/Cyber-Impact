@@ -34,26 +34,30 @@ const ProfileView = () => {
         <div className="profile-view-body-title">{data.BusinessName}</div>
 
         <div className="profile-view-info">
-          <div className="profile-view-texts">
-            Profession: {data.Profession}
+          <div className="profile-view-text-section">
+            <div className="profile-view-texts">
+              Profession: {data.Profession}
+            </div>
+            <br />
+            <div className="profile-view-texts">
+              Phone Number: {data.PhoneNumber}
+            </div>
+            <br />
+            <div className="profile-view-texts">Address: {data.Address}</div>
+            <br />
+            <div className="profile-view-texts">Rating: {data.Rating}</div>
+            <br />
+            <div className="profile-view-texts">
+              Opening Time: {data.OpeningTime}
+            </div>
+            <br />
+            <div className="profile-view-texts">
+              Closing Time: {data.ClosingTime}
+            </div>
+            <br />
           </div>
-          <br />
-          <div className="profile-view-texts">
-            Phone Number: {data.PhoneNumber}
-          </div>
-          <br />
-          <div className="profile-view-texts">Address: {data.Address}</div>
-          <br />
-          <div className="profile-view-texts">Rating: {data.Rating}</div>
-          <br />
-          <div className="profile-view-texts">
-            Opening Time: {data.OpeningTime}
-          </div>
-          <br />
-          <div className="profile-view-texts">
-            Closing Time: {data.ClosingTime}
-          </div>
-          <br />
+
+          <div className="profile-view-review-section"></div>
         </div>
       </div>
     </div>
