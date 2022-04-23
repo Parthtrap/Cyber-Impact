@@ -23,7 +23,7 @@
 	--c: black;
 	background: white;
 	color: var(--c);
-	font-size: 15px;
+	font-size: 1vw;
 	border: 0.3em solid var(--c);
 	border-radius: 0.5em;
 	width: 20%;
