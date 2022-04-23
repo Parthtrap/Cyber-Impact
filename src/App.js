@@ -7,6 +7,7 @@ import ForgotPassword from "./Pages/Authentication/ForgotPassword";
 import Header from "./Components/Header";
 import SignUpPage from "./Pages/Authentication/SignUpPage";
 import MarketProfile from "./Pages/Portal/MarketProfile";
+import ProfileForm from "./Pages/Portal/ProfileForm";
 
 function App() {
 	return (
@@ -37,13 +38,18 @@ function App() {
 					<FrontPage />
 				</Route>
 
-				<Route exact path="/MarketProfile">
-					<Header MarketProfileBtn={false} />
-					<MarketProfile />
-				</Route>
-			</Switch>
-		</>
-	);
+        <Route exact path="/MarketProfile">
+          <Header MarketProfileBtn={false} />
+          <MarketProfile />
+        </Route>
+
+        <Route exact path="/ProfileForm">
+          <Header MarketProfileBtn={true} />
+          <ProfileForm />
+        </Route>
+      </Switch>
+    </>
+  );
 }
 
 export default App;
