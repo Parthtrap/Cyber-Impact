@@ -105,36 +105,83 @@ const ProfileForm = () => {
   };
 
   return (
-    <React.Fragment>
-      <Modal show={modalIsOpen} onCancel={closeMap}>
-        <MapForm
-          onCoordinate={setCoordinates}
-          initialCoordinates={getInitialCoordinates}
-        />
-      </Modal>
-      {modalIsOpen ? <BackDrop onCancel={closeMap} /> : null}
-      <div className="profile-creator-body">
-        <div className="profile-creator-maini-display-place-thingy">
-          <div className="profile-creator-body-title">Create New Profile</div>
-          <form method="post">
-            <div class="profile-creator-txt-field">
-              <input type="text" ref={businessNameInputRef} required />
-              <span></span>
-              <label>Enter Buisness Name</label>
-            </div>
+    <div className="profile-creator-body">
+      <div className="profile-creator-main-display-place-thingy">
+        <div className="profile-creator-body-title">Create New Profile</div>
+        <form method="post">
+          <div class="profile-creator-txt-field">
+            <input type="text" ref={businessNameInputRef} required />
+            <span></span>
+            <label>Enter Buisness Name</label>
+          </div>
 
-            <div class="profile-creator-txt-field">
-              <input type="number" ref={phoneNumberInputRef} required />
-              <span></span>
-              <label>Enter Phone Number</label>
-            </div>
+          <div class="profile-creator-txt-field">
+            <input type="number" ref={phoneNumberInputRef} required />
+            <span></span>
+            <label>Enter Phone Number</label>
+          </div>
 
-            <div class="profile-creator-txt-field">
-              <input type="text" ref={addressInputRef} required />
-              <span></span>
-              <label>Enter Buisness Address</label>
-            </div>
+          <div class="profile-creator-txt-field">
+            <input type="text" ref={addressInputRef} required />
+            <span></span>
+            <label>Enter Buisness Address</label>
+          </div>
 
+          <button
+            id="profile-creator-location-button"
+            className="profile-creator-location-button"
+          >
+            Choose Location
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="profile-creator-time-field">
+            <input type="time" ref={openingTimeInputRef} required />
+            <span></span>
+            <label>Enter Opening Time</label>
+          </div>
+
+          <div class="profile-creator-time-field">
+            <input type="time" ref={closingTimeInputRef} required />
+            <span></span>
+            <label>Enter Closing Time</label>
+          </div>
+
+          <select
+            name="category-select-form"
+            className="selection-form category-select-form"
+            id="category-select-form"
+            onChange={categorySelect}
+          >
+            {categoryStorage.Categories.map((e) => {
+              return (
+                <option className="category-items" value={e}>
+                  {e}
+                </option>
+              );
+            })}
+          </select>
+
+          <select
+            name="profession-select-form"
+            className="selection-form profession-select-form"
+            id="profession-select-form"
+            onChange={professionChange}
+            ref={professionInputRef}
+          >
+            {ProfessionArray.map((e) => {
+              return (
+                <option className="category-items" value={e}>
+                  {e}
+                </option>
+              );
+            })}
+          </select>
+          <br />
+          <div className="new-profile-submit-div">
             <button
               onClick={useMap}
               id="profile-creator-location-button"
