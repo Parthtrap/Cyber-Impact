@@ -28,14 +28,15 @@
 }
 
 /* Text fields */
-form .profile-txt_field {
+form .profile-creator-txt-field {
 	position: relative;
 	border-bottom: 2px solid #adadad;
 	margin: 30px 0;
+	overflow-x: visible;
 	width: 60%;
 }
 
-.profile-txt_field input {
+.profile-creator-txt-field input {
 	width: 100%;
 	padding: 0 5px;
 	height: 35px;
@@ -46,7 +47,7 @@ form .profile-txt_field {
 	outline: none;
 }
 
-.profile-txt_field label {
+.profile-creator-txt-field label {
 	position: absolute;
 	top: 50%;
 	left: 5px;
@@ -57,7 +58,7 @@ form .profile-txt_field {
 	transition: 0.5s;
 }
 
-.profile-txt_field span::before {
+.profile-creator-txt-field span::before {
 	content: "";
 	position: absolute;
 	top: 35px;
@@ -68,16 +69,16 @@ form .profile-txt_field {
 	transition: 0.5s;
 }
 
-.profile-txt_field input:focus ~ label,
-.profile-txt_field input:valid ~ label {
+.profile-creator-txt-field input:focus ~ label,
+.profile-creator-txt-field input:valid ~ label {
 	top: -5px;
 	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
-.profile-txt_field input:focus ~ span::before,
-.profile-txt_field input:valid ~ span::before {
+.profile-creator-txt-field input:focus ~ span::before,
+.profile-creator-txt-field input:valid ~ span::before {
 	width: 100%;
 }
 
@@ -108,7 +109,7 @@ form .profile-txt_field {
 
 /* Location Button */
 
-.location-button {
+.profile-creator-location-button {
 	margin: 30px;
 	--c: black;
 	background: white;
@@ -129,7 +130,7 @@ form .profile-txt_field {
 	margin: 0.5px;
 }
 
-.location-button span {
+.profile-creator-location-button span {
 	position: absolute;
 	width: 25%;
 	height: 100%;
@@ -142,29 +143,29 @@ form .profile-txt_field {
 	z-index: -1;
 }
 
-.location-button:hover {
+.profile-creator-location-button:hover {
 	color: white;
 	border: 4px white solid;
 	cursor: pointer;
 }
 
-.location-button:hover span {
+.profile-creator-location-button:hover span {
 	transform: translateY(0) scale(2);
 }
 
-.location-button span:nth-child(1) {
+.profile-creator-location-button span:nth-child(1) {
 	--n: 1;
 }
 
-.location-button span:nth-child(2) {
+.profile-creator-location-button span:nth-child(2) {
 	--n: 2;
 }
 
-.location-button span:nth-child(3) {
+.profile-creator-location-button span:nth-child(3) {
 	--n: 3;
 }
 
-.location-button span:nth-child(4) {
+.profile-creator-location-button span:nth-child(4) {
 	--n: 4;
 }
 

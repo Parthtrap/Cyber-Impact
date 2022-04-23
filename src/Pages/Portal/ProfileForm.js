@@ -34,25 +34,25 @@ const ProfileForm = () => {
 			<div className="profile-creator-maini-display-place-thingy">
 				<div className="profile-creator-body-title">Create New Profile</div>
 				<form method="post">
-					<div class="profile-txt_field">
+					<div class="profile-creator-txt-field">
 						<input type="text" required />
 						<span></span>
 						<label>Enter Buisness Name</label>
 					</div>
 
-					<div class="profile-txt_field">
+					<div class="profile-creator-txt-field">
 						<input type="text" required />
 						<span></span>
 						<label>Enter Phone Number</label>
 					</div>
 
-					<div class="profile-txt_field">
+					<div class="profile-creator-txt-field">
 						<input type="text" required />
 						<span></span>
 						<label>Enter Buisness Address</label>
 					</div>
 
-					<button id="location-button" className="location-button">
+					<button id="profile-creator-location-button" className="profile-creator-location-button">
 						Choose Location
 						<span></span>
 						<span></span>
@@ -60,13 +60,13 @@ const ProfileForm = () => {
 						<span></span>
 					</button>
 
-					<div class="profile-txt_field">
+					<div class="profile-creator-txt-field">
 						<input type="text" required />
 						<span></span>
 						<label>Enter Opening Time</label>
 					</div>
 
-					<div class="profile-txt_field">
+					<div class="profile-creator-txt-field">
 						<input type="text" required />
 						<span></span>
 						<label>Enter Closing Time</label>
