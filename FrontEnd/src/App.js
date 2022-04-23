@@ -16,7 +16,7 @@ import FavouritesPage from "./Pages/Portal/FavouritesPage";
 function App() {
   const auth = useContext(AuthContext);
 
-  return auth.isLoggedIn ? (
+  return !auth.isLoggedIn ? (
     <>
       <Switch>
         <Route exact path="/">
