@@ -11,6 +11,7 @@ import ProfileForm from "./Pages/Portal/ProfileForm";
 import { useContext } from "react";
 import AuthContext from "./context/auth-context";
 import ProfileView from "./Pages/Portal/ProfileView";
+import FavouritesPage from "./Pages/Portal/FavouritesPage";
 
 function App() {
   const auth = useContext(AuthContext);
@@ -61,6 +62,10 @@ function App() {
         <Route exact path="/ProfileView">
           <Header MarketProfileBtn={true} />
           <ProfileView />
+        </Route>
+        <Route exact path="/FavouritesPage">
+          <Header MarketProfileBtn={true} />
+          <FavouritesPage />
         </Route>
         <Route exact path="/*">
           <Redirect to="/" />
