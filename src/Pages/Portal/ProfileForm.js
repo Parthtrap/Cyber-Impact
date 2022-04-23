@@ -110,13 +110,13 @@ const ProfileForm = () => {
             <span></span>
           </button>
 
-          <div class="profile-creator-txt-field">
+          <div class="profile-creator-time-field">
             <input type="time" ref={openingTimeInputRef} required />
             <span></span>
             <label>Enter Opening Time</label>
           </div>
 
-          <div class="profile-creator-txt-field">
+          <div class="profile-creator-time-field">
             <input type="time" ref={closingTimeInputRef} required />
             <span></span>
             <label>Enter Closing Time</label>

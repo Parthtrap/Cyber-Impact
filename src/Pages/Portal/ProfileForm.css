@@ -82,6 +82,50 @@ form .profile-creator-txt-field {
 	width: 100%;
 }
 
+/* Time Field */
+.profile-creator-time-field {
+	position: relative;
+	border-bottom: 2px solid #adadad;
+	margin: 30px 0;
+	overflow-x: visible;
+	width: 60%;
+}
+
+.profile-creator-time-field input {
+	width: 100%;
+	padding: 0 5px;
+	height: 35px;
+	color: aliceblue;
+	font-size: 16px;
+	border: none;
+	background: none;
+	outline: none;
+}
+
+.profile-creator-time-field label {
+	position: absolute;
+	left: 5px;
+	color: aliceblue;
+	transform: translateY(-50%);
+	font-size: 16px;
+	pointer-events: none;
+	transition: 0.5s;
+	top: -5px;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.profile-creator-time-field span::before {
+	content: "";
+	position: absolute;
+	top: 35px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	transition: 0.5s;
+}
+
 /* For Category and Prrofession Selector */
 .selection-form {
 	font-size: 15px;
