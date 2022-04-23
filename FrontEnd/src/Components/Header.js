@@ -1,79 +1,83 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import AuthContext from "../context/auth-context";
 import headerLogo from "./../Media/logo.png";
 import "./Header.css";
 
 const Header = (props) => {
-  const [dropdownListStyle, setDropdownListStyle] = useState({});
-  const [isOpen, setIsOpen] = useState(false);
+	const [dropdownListStyle, setDropdownListStyle] = useState({});
+	const [isOpen, setIsOpen] = useState(false);
+	const auth = useContext(AuthContext);
 
-  const dropdownHandler = () => {
-    if (isOpen) {
-      setDropdownListStyle({
-        height: "0px",
-        animation: "drop-up-animation 1s",
-      });
-      setIsOpen(false);
-    } else {
-      setDropdownListStyle({
-        height: "119px",
-        animation: "drop-down-animation 1s",
-      });
-      setIsOpen(true);
-    }
-  };
+	const dropdownHandler = () => {
+		if (isOpen) {
+			setDropdownListStyle({
+				height: "0px",
+				animation: "drop-up-animation 1s",
+			});
+			setIsOpen(false);
+		} else {
+			setDropdownListStyle({
+				height: "119px",
+				animation: "drop-down-animation 1s",
+			});
+			setIsOpen(true);
+		}
+	};
 
-  return (
-    <div className="header-main-div">
-      <div className="header-body">
-        <div className="header-body-title">
-          <img className="header-logo" src={headerLogo} alt="No Image" />
-          <a href="./FrontPage">Cyber Impact</a>
-        </div>
+	const LogoutHandler = () => {
+		auth.logout();
+	};
 
-        <button className="header-dropdown-button" onClick={dropdownHandler}>
-          ≡
-        </button>
+	return (
+		<div className="header-main-div">
+			<div className="header-body">
+				<div className="header-body-title">
+					<img className="header-logo" src={headerLogo} alt="No Image" />
+					<a href="./FrontPage">Cyber Impact</a>
+				</div>
 
-        {/* Buttons for Header */}
-        <div className="header-buttons">
-          {props.MarketProfileBtn ? (
-            <>
-              <div className="header-body-components">
-                <a href="./MarketProfile">
-                  <div className="header-body-components-item">
-                    Market Profile
-                  </div>
-                </a>
-              </div>{" "}
-            </>
-          ) : (
-            ""
-          )}
+				<button className="header-dropdown-button" onClick={dropdownHandler}>
+					≡
+				</button>
 
-          <div className="header-body-components">
-            <a href="./Login">
-              <div className="header-body-components-item">Log Out</div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div style={dropdownListStyle} className="header-dropdown">
-        <a href="./Login">
-          <div className="header-dropdown-items">Log Out</div>
-        </a>
+				{/* Buttons for Header */}
+				<div className="header-buttons">
+					{props.MarketProfileBtn ? (
+						<>
+							<div className="header-body-components">
+								<a href="./MarketProfile">
+									<div className="header-body-components-item">Market Profile</div>
+								</a>
+							</div>{" "}
+						</>
+					) : (
+						""
+					)}
 
-        {props.MarketProfileBtn ? (
-          <>
-            <a href="./MarketProfile">
-              <div className="header-dropdown-items">Market Profile</div>
-            </a>
-          </>
-        ) : (
-          ""
-        )}
-      </div>
-    </div>
-  );
+					<div className="header-body-components">
+						<a href="./" onClick={LogoutHandler}>
+							<div className="header-body-components-item">Log Out</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div style={dropdownListStyle} className="header-dropdown">
+				<a href="./" onClick={LogoutHandler}>
+					<div className="header-dropdown-items">Log Out</div>
+				</a>
+
+				{props.MarketProfileBtn ? (
+					<>
+						<a href="./MarketProfile">
+							<div className="header-dropdown-items">Market Profile</div>
+						</a>
+					</>
+				) : (
+					""
+				)}
+			</div>
+		</div>
+	);
 };
 
 export default Header;
