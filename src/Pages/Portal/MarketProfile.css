@@ -40,11 +40,11 @@
 	margin: 1em;
 }
 
-.market-profile-new-profile-btn a{
+.market-profile-new-profile-btn a {
 	color: black;
 }
 
-.market-profile-new-profile-btn a:hover{
+.market-profile-new-profile-btn:hover a {
 	color: white;
 }
 
@@ -88,8 +88,8 @@
 }
 
 /* Main Display for Marketer's Profile  */
-.market-profile-main-display{
-    height: calc(100vh - 215px);
+.market-profile-main-display {
+	height: calc(100vh - 215px);
 	width: 100%;
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.43)), linear-gradient(270deg, #29ffed 0%, #d260ff 100%);
 	border-radius: 30px;
