@@ -96,7 +96,7 @@ a {
 	color: white;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 560px) {
 	.header-buttons {
 		display: none;
 	}

@@ -1,5 +1,36 @@
-.profile-view-body{height: calc(100vh - 80px);
+.profile-view-body{
+    height: calc(100vh - 80px);
 	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
 	mix-blend-mode: difference;
 	padding: 20px;
+}
+
+.profile-view-main-display-place-thingy{
+    height: 82vh;
+	overflow-y: hidden;
+	margin-top: 10px;
+	margin: auto;
+	width: 95%;
+	align-items: center;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.43)), linear-gradient(270deg, #29ffed 0%, #d260ff 100%);
+	border-radius: 30px;
+}
+
+.profile-view-body-title {
+	text-align: center;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 50px;
+	font-weight: 400;
+	border-bottom: 6px solid transparent;
+	border-image: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	border-image-slice: 1;
+}
+
+.profile-view-texts{
+    font-size: 20px;
+    font-weight: 600;
+    color: azure;
+    padding: 20px;
 }
