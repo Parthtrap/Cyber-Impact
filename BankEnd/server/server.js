@@ -1,7 +1,7 @@
 //extracting express module
 const express = require("express");
 const app = express();
-const port = 6000;
+const port = 5000;
 
 //extracting routers
 const userRouters = require("./routers/user-routers");

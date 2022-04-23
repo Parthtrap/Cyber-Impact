@@ -1,70 +1,102 @@
-import React from "react";
+import React, { useRef, useContext } from "react";
+import AuthContext from "../../context/auth-context";
+import { ValidateEmail } from "../../HelperClasses/HelperFunctions";
 import "./SignUpPage.css";
 
 const SignUpPage = () => {
-	let Username = "";
-	let Email = "";
-	let Password = "";
-	let ConfirmPassword = "";
-	const updateUsername = (event) => {
-		Username = event.target.value;
-	};
-	const updateEmail = (event) => {
-		Email = event.target.value;
-	};
-	const updatePassword = (event) => {
-		Password = event.target.value;
-	};
-	const updateConfirmPassword = (event) => {
-		ConfirmPassword = event.target.value;
-	};
-	const submitPressed = (event) => {
-		event.preventDefault();
-		if (Password !== ConfirmPassword) alert("Password doesnt match Confirm Password");
-		else {
-			console.log(Username, Email, Password, ConfirmPassword);
-		}
-	};
+  const auth = useContext(AuthContext);
 
-	return (
-		<>
-			<div className="signup-page-div">
-				<div className="signup-form-div">
-					<h1 className="signup-form-title">USER SIGNUP</h1>
-					<form method="post">
-						<div class="signup-page-txt-field">
-							<input type="username" onChange={updateUsername} required />
-							<span></span>
-							<label> Username</label>
-						</div>
+  const unameInputRef = useRef();
+  const emailInputRef = useRef();
+  const passwordInputRef = useRef();
+  const confirmPasswordInputRef = useRef();
 
-						<div class="signup-page-txt-field">
-							<input type="text" onChange={updateEmail} required />
-							<span></span>
-							<label> Email Address</label>
-						</div>
+  const submitPressed = async (event) => {
+    const Username = unameInputRef.current.value;
+    const Email = emailInputRef.current.value;
+    const Password = passwordInputRef.current.value;
+    const ConfirmPassword = confirmPasswordInputRef.current.value;
 
-						<div class="signup-page-txt-field">
-							<input type="password" onChange={updatePassword} required />
-							<span></span>
-							<label> Password</label>
-						</div>
+    if (!ValidateEmail(Email)) {
+      alert("Please enter a valid email.");
+    }
+    event.preventDefault();
+    if (Password !== ConfirmPassword) {
+      alert("Password doesnt match Confirm Password");
+    } else {
+      try {
+        const userdata = JSON.stringify({
+          name: Username,
+          email: Email,
+          password: Password,
+        });
+		const response = await fetch("http://localhost:5000/api/user/signup", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: userdata,
+        });
+        const responseData = await response.json();
+        if (response.status === 201) {
+          auth.login({
+            username: responseData.user.username,
+            id: responseData.user._id,
+          });
+          console.log(responseData);
+        } else {
+          console.log(responseData.error);
+        }
+      } catch (err) {
+        console.log(err);
+        return;
+      }
+    }
+  };
 
-						<div class="signup-page-txt-field">
-							<input type="password" onChange={updateConfirmPassword} required />
-							<span></span>
-							<label> Re-confirm Password</label>
-						</div>
+  return (
+    <>
+      <div className="signup-page-div">
+        <div className="signup-form-div">
+          <h1 className="signup-form-title">USER SIGNUP</h1>
+          <form method="post">
+            <div class="signup-page-txt-field">
+              <input ref={unameInputRef} type="username" required />
+              <span></span>
+              <label> Username</label>
+            </div>
 
-						<input type="submit" value="Make an Account" onClick={submitPressed} />
-						<div class="signup-page-signup-link">
-							Already a User? <a href="./Login">User Login</a>
-						</div>
-					</form>
-				</div>
-			</div>
-		</>
-	);
+            <div class="signup-page-txt-field">
+              <input ref={emailInputRef} type="text" required />
+              <span></span>
+              <label> Email Address</label>
+            </div>
+
+            <div class="signup-page-txt-field">
+              <input ref={passwordInputRef} type="password" required />
+              <span></span>
+              <label> Password</label>
+            </div>
+
+            <div class="signup-page-txt-field">
+              <input ref={confirmPasswordInputRef} type="password" required />
+              <span></span>
+              <label> Re-confirm Password</label>
+            </div>
+
+            <input
+              type="submit"
+              value="Make an Account"
+              onClick={submitPressed}
+            />
+            <div class="signup-page-signup-link">
+              Already a User? <a href="./Login">User Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default SignUpPage;

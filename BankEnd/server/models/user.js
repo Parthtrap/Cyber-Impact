@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     password : {
         type : String,
         required : [true, "Please enter a password"],
-        minlength : 6
+        minlength : 8
     },
     favourites : [{
         type : mongoose.Types.ObjectId, 

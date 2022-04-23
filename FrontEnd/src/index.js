@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 
 import { BrowserRouter } from "react-router-dom";
-import { AuthContextProvider } from "./Context/auth-context";
+import { AuthContextProvider } from "./context/auth-context";
 
 ReactDOM.render(
   <AuthContextProvider>
