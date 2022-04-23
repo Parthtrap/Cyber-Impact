@@ -1,0 +1,42 @@
+.favourites-page-body {
+	height: calc(100vh - 80px);
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	mix-blend-mode: difference;
+	padding: 20px;
+}
+
+.favourites-page-bar {
+	width: calc(100%);
+	height: 75px;
+	display: flex;
+	margin-bottom: 20px;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.43)), linear-gradient(270deg, #29ffed 0%, #d260ff 100%);
+	border-radius: 20px;
+	justify-content: space-around;
+	align-items: center;
+	overflow: hidden;
+}
+
+.favourites-page-title{
+    text-align: center;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 40px;
+	font-weight: 600;
+	
+}
+
+/* Main Display for Favourites Page */
+.favourites-page-main-display-place-thingy{
+    height: calc(100vh - 215px);
+	width: 100%;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.43)), linear-gradient(270deg, #29ffed 0%, #d260ff 100%);
+	border-radius: 30px;
+	overflow-y: scroll;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 30px;
+}
+
