@@ -175,7 +175,7 @@ const getFilteredMarkets = async (req, res) => {
     //and filter with rating
     if (filter === "Rating") {
       try {
-        filteredMarkets = await Market.find({}).sort({ rating: -1 });
+        filteredMarkets = await Market.find({}).sort({ rating: -1 }).limit(30);
         console.log("Got Data");
       } catch (err) {
         console.log(err.message);

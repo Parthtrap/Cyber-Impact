@@ -5,60 +5,92 @@ import ProfileCards from "../../Components/ProfileCards";
 const FrontPage = () => {
   const [markets, setMarkets] = useState([]);
 
-//   useEffect(() => {
-//     const searchQuery = JSON.stringify({
-//       profession: null,
-//       filter: "Rating",
-//     });
+  //   useEffect(() => {
+  // const searchQuery = JSON.stringify({
+  //   profession: null,
+  //   filter: "Rating",
+  // });
 
-//     console.log(searchQuery);
+  //     console.log(searchQuery);
 
-//     fetch("http://localhost:5000/api/market/filter", {
-//       method: "POST",
-//       headers: {
-//         "Content-type": "application/json",
-//       },
-//       body: searchQuery,
-//     }).then((response, err) => {
-//       if (response.status === 201) {
-//         response.json().then((data) => {
-//           console.log(data);
-//           setMarkets(data.filteredMarkets);
-//           return;
-//         });
-//       } else {
-//         console.log(err);
-//         return;
-//       }
-//     });
-//   });
+  // fetch("http://localhost:5000/api/market/filter", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-type": "application/json",
+  //   },
+  //   body: searchQuery,
+  // }).then((response, err) => {
+  //       if (response.status === 201) {
+  //         response.json().then((data) => {
+  //           console.log(data);
+  //           setMarkets(data.filteredMarkets);
+  //           return;
+  //         });
+  //       } else {
+  //         console.log(err);
+  //         return;
+  //       }
+  //     });
+  //   });
+  useEffect(() => {
+    const fetchMarket = async () => {
+      const searchQuery = JSON.stringify({
+        profession: null,
+        filter: "Rating",
+      });
+      try {
+        const response = await fetch(
+          "http://localhost:5000/api/market/filter",
+          {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: searchQuery,
+          }
+        );
 
-//   const data = {
-//     BusinessID: "rklncyi2o8r2uncor4",
-//     BusinessName: "Parthtrap Tailors",
-//     PhoneNumber: "94738563824",
-//     OwnerID: "3jh52n5iu4fsgev",
-//     Address: "Agra, UP",
-//     latitude: 35.4345453,
-//     longitude: 34.5675856,
-//     Rating: 4.5,
-//     Reviews: [
-//       {
-//         RaterID: "hu34brku3hrbku4",
-//         Rating: 5,
-//         Review: "Dope AF",
-//       },
-//       {
-//         RaterID: "ergiueyivu3tnv",
-//         Rating: 4,
-//         Review: "Meh",
-//       },
-//     ],
-//     OpeningTime: "3PM",
-//     ClosingTime: "9PM",
-//     Profession: "tailor",
-//     ImageURL: "dgferf.in/fgrcwfwf/wfcwfw",
-//   };
+        const responseData = await response.json();
+
+        if (response.status === 201) {
+          console.log(responseData);
+          setMarkets(responseData.filteredMarkets);
+        } else {
+          console.log(responseData.error);
+        }
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+    fetchMarket();
+  }, []);
+
+  //   const data = {
+  //     BusinessID: "rklncyi2o8r2uncor4",
+  //     BusinessName: "Parthtrap Tailors",
+  //     PhoneNumber: "94738563824",
+  //     OwnerID: "3jh52n5iu4fsgev",
+  //     Address: "Agra, UP",
+  //     latitude: 35.4345453,
+  //     longitude: 34.5675856,
+  //     Rating: 4.5,
+  //     Reviews: [
+  //       {
+  //         RaterID: "hu34brku3hrbku4",
+  //         Rating: 5,
+  //         Review: "Dope AF",
+  //       },
+  //       {
+  //         RaterID: "ergiueyivu3tnv",
+  //         Rating: 4,
+  //         Review: "Meh",
+  //       },
+  //     ],
+  //     OpeningTime: "3PM",
+  //     ClosingTime: "9PM",
+  //     Profession: "tailor",
+  //     ImageURL: "dgferf.in/fgrcwfwf/wfcwfw",
+  //   };
 
   let categoryStorage = {
     Categories: [
@@ -114,7 +146,8 @@ const FrontPage = () => {
     categoryStorage.Professions["No Category"]
   );
   const [selectedCategory, setSelectedCategory] = useState("No Category");
-  const [selectedProfession, setSelectedProfession] = useState("No Professions");
+  const [selectedProfession, setSelectedProfession] =
+    useState("No Professions");
   const [selectedFilter, setSelectedFilter] = useState("Rating");
   const [filterStyle, setFilterStyle] = useState(
     "user-frontpage-filtering-bar"
@@ -282,7 +315,6 @@ const FrontPage = () => {
               onChange={searchBarChange}
               value={searchBarText}
             />
-            
           </div>
 
           <button
@@ -330,7 +362,7 @@ const FrontPage = () => {
             OpeningTime: market.openingTime,
             ClosingTime: market.closingTime,
             Profession: market.profession,
-            ImageURL: market.imageURL
+            ImageURL: market.imageURL,
           };
 
           return <ProfileCards data={data} />;
