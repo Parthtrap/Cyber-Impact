@@ -1,0 +1,210 @@
+.profile-creator-body {
+	height: calc(100vh - 80px);
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	mix-blend-mode: difference;
+	padding: 20px;
+}
+
+.profile-creator-maini-display-place-thingy {
+	height: 82vh;
+	margin-top: 10px;
+	margin: auto;
+	width: 95%;
+	align-items: center;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.43)), linear-gradient(270deg, #29ffed 0%, #d260ff 100%);
+	border-radius: 30px;
+}
+
+.profile-creator-body-title {
+	text-align: center;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 30px;
+	font-weight: 400;
+	border-bottom: 6px solid transparent;
+	border-image: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	border-image-slice: 1;
+}
+
+/* Text fields */
+form .profile-txt_field {
+	position: relative;
+	border-bottom: 2px solid #adadad;
+	margin: 30px 0;
+	width: 60%;
+}
+
+.profile-txt_field input {
+	width: 100%;
+	padding: 0 5px;
+	height: 35px;
+	color: aliceblue;
+	font-size: 16px;
+	border: none;
+	background: none;
+	outline: none;
+}
+
+.profile-txt_field label {
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	color: aliceblue;
+	transform: translateY(-50%);
+	font-size: 16px;
+	pointer-events: none;
+	transition: 0.5s;
+}
+
+.profile-txt_field span::before {
+	content: "";
+	position: absolute;
+	top: 35px;
+	left: 0;
+	width: 0%;
+	height: 2px;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	transition: 0.5s;
+}
+
+.profile-txt_field input:focus ~ label,
+.profile-txt_field input:valid ~ label {
+	top: -5px;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.profile-txt_field input:focus ~ span::before,
+.profile-txt_field input:valid ~ span::before {
+	width: 100%;
+}
+
+/* For Category and Prrofession Selector */
+.selection-form {
+	font-size: 15px;
+	font-family: "Quicksand";
+	display: inline-block;
+	margin-top: 5px;
+	width: 20%;
+	border: 4px black solid;
+	position: relative;
+	cursor: pointer;
+	border-radius: 10px;
+	height: 40px;
+	margin-left: 20px;
+}
+.selection-form:focus {
+	background: black;
+	color: white;
+	border: 4px white solid;
+}
+.selection-form option {
+	background: black;
+	color: white;
+	border: 4px white solid;
+}
+
+/* Location Button */
+
+.location-button {
+	margin: 30px;
+	--c: black;
+	background: white;
+	color: var(--c);
+	font-size: 15px;
+	border: 0.3em solid var(--c);
+	border-radius: 0.5em;
+	width: 15%;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: "Quicksand";
+	letter-spacing: 0.1em;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	transition: 0.5s;
+	margin: 0.5px;
+}
+
+.location-button span {
+	position: absolute;
+	width: 25%;
+	height: 100%;
+	background-color: var(--c);
+	transform: translateY(150%);
+	border-radius: 50%;
+	left: calc((var(--n) - 1) * 25%);
+	transition: 0.5s;
+	transition-delay: calc((var(--n) - 1) * 0.1s);
+	z-index: -1;
+}
+
+.location-button:hover {
+	color: white;
+	border: 4px white solid;
+	cursor: pointer;
+}
+
+.location-button:hover span {
+	transform: translateY(0) scale(2);
+}
+
+.location-button span:nth-child(1) {
+	--n: 1;
+}
+
+.location-button span:nth-child(2) {
+	--n: 2;
+}
+
+.location-button span:nth-child(3) {
+	--n: 3;
+}
+
+.location-button span:nth-child(4) {
+	--n: 4;
+}
+
+/* For Save Button */
+.new-profile-save-button {
+	position: relative;
+	color: white;
+	letter-spacing: 1px;
+	font-size: 18px;
+	padding: 10px;
+	text-align: center;
+	transition: 0.5s;
+	border-radius: 10px;
+	cursor: pointer;
+	border-radius: 25px;
+	border: none;
+	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
+}
+
+.new-profile-save-button {
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	width: 90px;
+	box-shadow: 20px 0px 40px 0px #21ccef;
+	height: 35px;
+}
+
+.new-profile-save-button:hover {
+	color: rgb(0, 0, 0);
+	width: 180px;
+	box-shadow: 0px 0px 20px 0px #63d3a6;
+}
+.new-profile-save-button:focus {
+	outline: none;
+}
+
+.new-profile-submit-div {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 26px;
+}

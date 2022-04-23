@@ -25,7 +25,7 @@ const Header = (props) => {
     <div className="header-main-div">
       <div className="header-body">
         <div className="header-body-title">
-          <a href="./">Cyber Impact</a>
+          <a href="./FrontPage">Cyber Impact</a>
         </div>
 
         <button className="header-dropdown-button" onClick={dropdownHandler}>
