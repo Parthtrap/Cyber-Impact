@@ -4,13 +4,21 @@ import "./ForgotPassword.css";
 import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
-	const emailInputRef = useRef();
+	// Initiating References
+	const emailInputRef = useRef(); // Reference for Email Input
 
-	const submitPressed = (event) => {
-		event.preventDefault();
-		const Email = emailInputRef.current.value;
-		if (!ValidateEmail(Email)) alert("Please Enter a Valid Email!");
-		else console.log(Email);
+	// Submit Button On Click Handler
+	const submitButtonHandler = (event) => {
+		event.preventDefault(); // Preventing Page Reloading
+
+		const Email = emailInputRef.current.value; // Getting Email string from edit text
+
+		// Check if Email is valid or not
+		if (!ValidateEmail(Email)) {
+			alert("Please Enter a Valid Email!"); // Invalid Email
+		} else {
+			console.log(Email); // Valid Email
+		}
 	};
 
 	return (
@@ -25,7 +33,7 @@ const ForgotPassword = () => {
 							<label> Email Adress</label>
 						</div>
 
-						<input className="forgetpassword-submit-button" onClick={submitPressed} type="submit" value="ForgotPassword" />
+						<input className="forgetpassword-submit-button" onClick={submitButtonHandler} type="submit" value="ForgotPassword" />
 						<div class="forgot-password-forgot-link">
 							Not a member? <Link to="./SignUp">Signup</Link>
 						</div>

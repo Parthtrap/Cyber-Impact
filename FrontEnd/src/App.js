@@ -15,7 +15,7 @@ import ProfileView from "./Pages/Portal/ProfileView";
 function App() {
   const auth = useContext(AuthContext);
 
-  return auth.isLoggedIn ? (
+  return !auth.isLoggedIn ? (
     <>
       <Switch>
         <Route exact path="/">

@@ -5,32 +5,41 @@ import { ValidateEmail } from "../../HelperClasses/HelperFunctions";
 import "./SignUpPage.css";
 
 const SignUpPage = () => {
+	// Calling the Context
 	const auth = useContext(AuthContext);
 
+	// Initiating Refrences
 	const unameInputRef = useRef();
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
 	const confirmPasswordInputRef = useRef();
 
-	const submitPressed = async (event) => {
+	// Submit Button On Click Handler
+	const submitButtonHandler = async (event) => {
+		event.preventDefault(); // Preventing Page Reloading
+
+		// Getting values from edit texts
 		const Username = unameInputRef.current.value;
 		const Email = emailInputRef.current.value;
 		const Password = passwordInputRef.current.value;
 		const ConfirmPassword = confirmPasswordInputRef.current.value;
 
+		// Check for Valid Email and Password Length
 		if (!ValidateEmail(Email)) {
 			alert("Please enter a valid email.");
 		}
-		event.preventDefault();
+		// Check if Password == Confirm Password
 		if (Password !== ConfirmPassword) {
 			alert("Password doesnt match Confirm Password");
 		} else {
+			// Email and Password are Valid
 			try {
 				const userdata = JSON.stringify({
 					name: Username,
 					email: Email,
 					password: Password,
 				});
+
 				const response = await fetch("http://localhost:5000/api/user/signup", {
 					method: "POST",
 					headers: {
@@ -38,7 +47,10 @@ const SignUpPage = () => {
 					},
 					body: userdata,
 				});
+
 				const responseData = await response.json();
+
+				// Email Password Uploaded as New account => Login
 				if (response.status === 201) {
 					auth.login({
 						username: responseData.user.username,
@@ -85,7 +97,7 @@ const SignUpPage = () => {
 							<label> Re-confirm Password</label>
 						</div>
 
-						<input type="submit" value="Make an Account" onClick={submitPressed} />
+						<input type="submit" value="Make an Account" onClick={submitButtonHandler} />
 						<div class="signup-page-signup-link">
 							Already a User? <Link to="./Login">User Login</Link>
 						</div>
