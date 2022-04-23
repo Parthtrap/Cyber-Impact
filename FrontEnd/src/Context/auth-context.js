@@ -14,7 +14,6 @@ export const AuthContextProvider = (props) => {
   const [userId, setUserId] = useState(null);
 
   const login = (user) => {
-    console.log(user);
     setUserId(user.id);
     setUserName(user.username);
     setIsLoggedIn(true);
