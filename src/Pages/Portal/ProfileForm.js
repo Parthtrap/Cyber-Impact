@@ -1,7 +1,14 @@
 import "./ProfileForm.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const ProfileForm = () => {
+	const businessNameInputRef = useRef();
+	const phoneNumberInputRef = useRef();
+	const addressInputRef = useRef();
+	const openingTimeInputRef = useRef();
+	const closingTimeInputRef = useRef();
+	const professionInputRef = useRef();
+
 	let categoryStorage = {
 		Categories: ["No Category", "Clothes", "Food", "Education", "Electrical", "Medical", "Services"],
 		Professions: {
@@ -29,25 +36,36 @@ const ProfileForm = () => {
 		setSelectedProfession(e.target.value);
 	};
 
+	const submitHandler = (event) => {
+		event.preventDefault();
+		const BusinessName = businessNameInputRef.current.value;
+		const PhoneNumber = phoneNumberInputRef.current.value;
+		const Address = addressInputRef.current.value;
+		const OpeningTime = openingTimeInputRef.current.value;
+		const ClosingTime = closingTimeInputRef.current.value;
+		const Profession = professionInputRef.current.value;
+		console.log(BusinessName, PhoneNumber, Address, OpeningTime, ClosingTime, Profession);
+	};
+
 	return (
 		<div className="profile-creator-body">
 			<div className="profile-creator-maini-display-place-thingy">
 				<div className="profile-creator-body-title">Create New Profile</div>
 				<form method="post">
 					<div class="profile-creator-txt-field">
-						<input type="text" required />
+						<input type="text" ref={businessNameInputRef} required />
 						<span></span>
 						<label>Enter Buisness Name</label>
 					</div>
 
 					<div class="profile-creator-txt-field">
-						<input type="text" required />
+						<input type="number" ref={phoneNumberInputRef} required />
 						<span></span>
 						<label>Enter Phone Number</label>
 					</div>
 
 					<div class="profile-creator-txt-field">
-						<input type="text" required />
+						<input type="text" ref={addressInputRef} required />
 						<span></span>
 						<label>Enter Buisness Address</label>
 					</div>
@@ -61,13 +79,13 @@ const ProfileForm = () => {
 					</button>
 
 					<div class="profile-creator-txt-field">
-						<input type="text" required />
+						<input type="time" ref={openingTimeInputRef} value="00:01" required />
 						<span></span>
 						<label>Enter Opening Time</label>
 					</div>
 
 					<div class="profile-creator-txt-field">
-						<input type="text" required />
+						<input type="time" ref={closingTimeInputRef} value="23:59" required />
 						<span></span>
 						<label>Enter Closing Time</label>
 					</div>
@@ -82,7 +100,7 @@ const ProfileForm = () => {
 						})}
 					</select>
 
-					<select name="profession-select-form" className="selection-form profession-select-form" id="profession-select-form" onChange={professionChange}>
+					<select name="profession-select-form" className="selection-form profession-select-form" id="profession-select-form" onChange={professionChange} ref={professionInputRef}>
 						{ProfessionArray.map((e) => {
 							return (
 								<option className="category-items" value={e}>
@@ -93,7 +111,7 @@ const ProfileForm = () => {
 					</select>
 					<br />
 					<div className="new-profile-submit-div">
-						<button type="submit" className="new-profile-save-button">
+						<button type="submit" className="new-profile-save-button" onClick={submitHandler}>
 							Save{" "}
 						</button>
 					</div>

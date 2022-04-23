@@ -117,7 +117,7 @@ form .profile-creator-txt-field {
 	font-size: 15px;
 	border: 0.3em solid var(--c);
 	border-radius: 0.5em;
-	width: 15%;
+	width: 200px;
 	text-transform: uppercase;
 	font-weight: bold;
 	font-family: "Quicksand";
@@ -207,5 +207,7 @@ form .profile-creator-txt-field {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	overflow: visible;
 	margin-top: 26px;
+	margin-bottom: 26px;
 }
