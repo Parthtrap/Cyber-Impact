@@ -14,7 +14,7 @@ import AuthContext from "./context/auth-context";
 function App() {
 	const auth = useContext(AuthContext);
 
-	return auth.isLoggedIn ? (
+	return !auth.isLoggedIn ? (
 		<>
 			<Switch>
 				<Route exact path="/">

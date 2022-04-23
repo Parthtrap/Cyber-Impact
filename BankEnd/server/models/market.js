@@ -28,8 +28,8 @@ const marketSchema = new mongoose.Schema({
   imageURL: { type: String, required: true },
   address: { type: String, required: true },
   location: {
-    lat: { type: Number, required: true },
-    lng: { type: Number, required: true },
+    lat: { type: Number },
+    lng: { type: Number },
   },
   description: { type: String },
   rating: {
@@ -52,4 +52,4 @@ const marketSchema = new mongoose.Schema({
 });
 
 //exporting Market modal
-module.exports = mongoose.module("Market", marketSchema);
+module.exports = mongoose.model("Market", marketSchema);

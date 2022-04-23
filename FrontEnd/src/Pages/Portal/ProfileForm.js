@@ -1,12 +1,13 @@
 import "./ProfileForm.css";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 import Modal from "../../Components/ui/Modal";
 import MapForm from "../../Components/shared/MapForm";
 import BackDrop from "../../Components/ui/Backdrop";
+import AuthContext from "../../context/auth-context";
 
 const ProfileForm = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
+  const auth = useContext(AuthContext);
   const latInputRef = useRef();
   const longInputRef = useRef();
 
@@ -66,7 +67,7 @@ const ProfileForm = () => {
     setSelectedProfession(e.target.value);
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
     const BusinessName = businessNameInputRef.current.value;
     const PhoneNumber = phoneNumberInputRef.current.value;
@@ -74,14 +75,42 @@ const ProfileForm = () => {
     const OpeningTime = openingTimeInputRef.current.value;
     const ClosingTime = closingTimeInputRef.current.value;
     const Profession = professionInputRef.current.value;
-    console.log(
-      BusinessName,
-      PhoneNumber,
-      Address,
-      OpeningTime,
-      ClosingTime,
-      Profession
-    );
+    const OwnerId = auth.userId;
+
+    // const {title, phonenum, address, lat, lng, openingTime, closingTime, profession, ownerId} = req.body;
+
+    const marketdata = {
+      title: BusinessName,
+      phonenum: PhoneNumber,
+      address: Address,
+      lat: latInputRef.current.value,
+      lng: longInputRef.current.value,
+      openingTime: OpeningTime,
+      closingTime: ClosingTime,
+      profession: Profession,
+      ownerId: OwnerId,
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/market/", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: marketdata,
+      });
+
+      const responseData = await response.json();
+
+      if (response.status === 201) {
+        console.log(responseData);
+      } else {
+        console.log(responseData.error);
+      }
+    } catch (err) {
+      console.log(err);
+      return;
+    }
   };
 
   const useMap = (event) => {
