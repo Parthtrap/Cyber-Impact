@@ -40,14 +40,6 @@
 	margin: 1em;
 }
 
-.market-profile-new-profile-btn a {
-	color: black;
-}
-
-.market-profile-new-profile-btn:hover a {
-	color: white;
-}
-
 .market-profile-new-profile-btn span {
 	position: absolute;
 	width: 25%;

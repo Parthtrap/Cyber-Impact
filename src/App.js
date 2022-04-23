@@ -38,18 +38,18 @@ function App() {
 					<FrontPage />
 				</Route>
 
-        <Route exact path="/MarketProfile">
-          <Header MarketProfileBtn={false} />
-          <MarketProfile />
-        </Route>
+				<Route exact path="/MarketProfile">
+					<Header MarketProfileBtn={false} />
+					<MarketProfile />
+				</Route>
 
-        <Route exact path="/ProfileForm">
-          <Header MarketProfileBtn={true} />
-          <ProfileForm />
-        </Route>
-      </Switch>
-    </>
-  );
+				<Route exact path="/ProfileForm">
+					<Header MarketProfileBtn={true} />
+					<ProfileForm />
+				</Route>
+			</Switch>
+		</>
+	);
 }
 
 export default App;
