@@ -1,6 +1,7 @@
 import { ValidateEmail } from "./../../HelperClasses/HelperFunctions";
 import React, { useRef } from "react";
 import "./ForgotPassword.css";
+import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
 	const emailInputRef = useRef();
@@ -26,7 +27,7 @@ const ForgotPassword = () => {
 
 						<input className="forgetpassword-submit-button" onClick={submitPressed} type="submit" value="ForgotPassword" />
 						<div class="forgot-password-forgot-link">
-							Not a member? <a href="./SignUp">Signup</a>
+							Not a member? <Link to="./SignUp">Signup</Link>
 						</div>
 					</form>
 				</div>

@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "./FrontPage.css";
 import ProfileCards from "../../Components/ProfileCards";
+import { useHistory } from "react-router-dom";
 
 const FrontPage = () => {
+	const navigate = useHistory();
+
 	const data = {
 		BusinessID: "rklncyi2o8r2uncor4",
 		BusinessName: "Parthtrap Tailors",
@@ -174,7 +177,7 @@ const FrontPage = () => {
 				</div>
 			</div>
 			<div className="frontpage-filtered-list-display">
-				<ProfileCards data={data} />
+				<ProfileCards data={data} onClick={() => {}} />
 				<ProfileCards data={data} />
 				<ProfileCards data={data} />
 				<ProfileCards data={data} />
