@@ -1,7 +1,15 @@
 import "./ProfileForm.css";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
+import Modal from "../../Components/ui/Modal";
+import MapForm from "../../Components/shared/MapForm";
+import BackDrop from "../../Components/ui/Backdrop";
 
 const ProfileForm = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const latInputRef = useRef();
+  const longInputRef = useRef();
+
   const businessNameInputRef = useRef();
   const phoneNumberInputRef = useRef();
   const addressInputRef = useRef();
@@ -76,95 +84,145 @@ const ProfileForm = () => {
     );
   };
 
+  const useMap = (event) => {
+    event.preventDefault();
+    setModalIsOpen(true);
+  };
+
+  const closeMap = () => {
+    setModalIsOpen(false);
+  };
+
+  const setCoordinates = (lat, lng) => {
+    latInputRef.current.value = lat;
+    longInputRef.current.value = lng;
+    console.log(lat, lng);
+  };
+  const getInitialCoordinates = () => {
+    const lat = latInputRef.current.value;
+    const long = longInputRef.current.value;
+    return [lat, long];
+  };
+
   return (
-    <div className="profile-creator-body">
-      <div className="profile-creator-maini-display-place-thingy">
-        <div className="profile-creator-body-title">Create New Profile</div>
-        <form method="post">
-          <div class="profile-creator-txt-field">
-            <input type="text" ref={businessNameInputRef} required />
-            <span></span>
-            <label>Enter Buisness Name</label>
-          </div>
+    <React.Fragment>
+      <Modal show={modalIsOpen} onCancel={closeMap}>
+        <MapForm
+          onCoordinate={setCoordinates}
+          initialCoordinates={getInitialCoordinates}
+        />
+      </Modal>
+      {modalIsOpen ? <BackDrop onCancel={closeMap} /> : null}
+      <div className="profile-creator-body">
+        <div className="profile-creator-maini-display-place-thingy">
+          <div className="profile-creator-body-title">Create New Profile</div>
+          <form method="post">
+            <div class="profile-creator-txt-field">
+              <input type="text" ref={businessNameInputRef} required />
+              <span></span>
+              <label>Enter Buisness Name</label>
+            </div>
 
-          <div class="profile-creator-txt-field">
-            <input type="number" ref={phoneNumberInputRef} required />
-            <span></span>
-            <label>Enter Phone Number</label>
-          </div>
+            <div class="profile-creator-txt-field">
+              <input type="number" ref={phoneNumberInputRef} required />
+              <span></span>
+              <label>Enter Phone Number</label>
+            </div>
 
-          <div class="profile-creator-txt-field">
-            <input type="text" ref={addressInputRef} required />
-            <span></span>
-            <label>Enter Buisness Address</label>
-          </div>
+            <div class="profile-creator-txt-field">
+              <input type="text" ref={addressInputRef} required />
+              <span></span>
+              <label>Enter Buisness Address</label>
+            </div>
 
-          <button
-            id="profile-creator-location-button"
-            className="profile-creator-location-button"
-          >
-            Choose Location
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-          <div class="profile-creator-time-field">
-            <input type="time" ref={openingTimeInputRef} required />
-            <span></span>
-            <label>Enter Opening Time</label>
-          </div>
-
-          <div class="profile-creator-time-field">
-            <input type="time" ref={closingTimeInputRef} required />
-            <span></span>
-            <label>Enter Closing Time</label>
-          </div>
-
-          <select
-            name="category-select-form"
-            className="selection-form category-select-form"
-            id="category-select-form"
-            onChange={categorySelect}
-          >
-            {categoryStorage.Categories.map((e) => {
-              return (
-                <option className="category-items" value={e}>
-                  {e}
-                </option>
-              );
-            })}
-          </select>
-
-          <select
-            name="profession-select-form"
-            className="selection-form profession-select-form"
-            id="profession-select-form"
-            onChange={professionChange}
-            ref={professionInputRef}
-          >
-            {ProfessionArray.map((e) => {
-              return (
-                <option className="category-items" value={e}>
-                  {e}
-                </option>
-              );
-            })}
-          </select>
-          <br />
-          <div className="new-profile-submit-div">
             <button
-              type="submit"
-              className="new-profile-save-button"
-              onClick={submitHandler}
+              onClick={useMap}
+              id="profile-creator-location-button"
+              className="profile-creator-location-button"
             >
-              Save{" "}
+              Choose Location
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </button>
-          </div>
-        </form>
+
+            <div class="profile-creator-time-field">
+              <input type="time" ref={openingTimeInputRef} required />
+              <span></span>
+              <label>Enter Opening Time</label>
+            </div>
+
+            <div class="profile-creator-time-field">
+              <input type="time" ref={closingTimeInputRef} required />
+              <span></span>
+              <label>Enter Closing Time</label>
+            </div>
+            <div>
+              <input
+              hidden="true"
+                type="number"
+                step="any"
+                required
+                id="lat"
+                ref={latInputRef}
+              />
+            </div>
+            <div>
+              <input
+              hidden="true"
+                type="number"
+                step="any"
+                required
+                id="long"
+                ref={longInputRef}
+              />
+            </div>
+
+            <select
+              name="category-select-form"
+              className="selection-form category-select-form"
+              id="category-select-form"
+              onChange={categorySelect}
+            >
+              {categoryStorage.Categories.map((e) => {
+                return (
+                  <option className="category-items" value={e}>
+                    {e}
+                  </option>
+                );
+              })}
+            </select>
+
+            <select
+              name="profession-select-form"
+              className="selection-form profession-select-form"
+              id="profession-select-form"
+              onChange={professionChange}
+              ref={professionInputRef}
+            >
+              {ProfessionArray.map((e) => {
+                return (
+                  <option className="category-items" value={e}>
+                    {e}
+                  </option>
+                );
+              })}
+            </select>
+            <br />
+            <div className="new-profile-submit-div">
+              <button
+                type="submit"
+                className="new-profile-save-button"
+                onClick={submitHandler}
+              >
+                Save{" "}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
