@@ -5,80 +5,82 @@ import headerLogo from "./../Media/logo.png";
 import "./Header.css";
 
 const Header = (props) => {
-	const [dropdownListStyle, setDropdownListStyle] = useState({});
-	const [isOpen, setIsOpen] = useState(false);
-	const auth = useContext(AuthContext);
+  const [dropdownListStyle, setDropdownListStyle] = useState({});
+  const [isOpen, setIsOpen] = useState(false);
+  const auth = useContext(AuthContext);
 
-	const dropdownHandler = () => {
-		if (isOpen) {
-			setDropdownListStyle({
-				height: "0px",
-				animation: "drop-up-animation 1s",
-			});
-			setIsOpen(false);
-		} else {
-			setDropdownListStyle({
-				height: "119px",
-				animation: "drop-down-animation 1s",
-			});
-			setIsOpen(true);
-		}
-	};
+  const dropdownHandler = () => {
+    if (isOpen) {
+      setDropdownListStyle({
+        height: "0px",
+        animation: "drop-up-animation 1s",
+      });
+      setIsOpen(false);
+    } else {
+      setDropdownListStyle({
+        height: "119px",
+        animation: "drop-down-animation 1s",
+      });
+      setIsOpen(true);
+    }
+  };
 
-	const LogoutHandler = () => {
-		auth.logout();
-	};
+  const LogoutHandler = () => {
+    auth.logout();
+  };
 
-	return (
-		<div className="header-main-div">
-			<div className="header-body">
-				<div className="header-body-title">
-					<img className="header-logo" src={headerLogo} alt="No Image" />
-					<a href="./FrontPage">Cyber Impact</a>
-				</div>
+  return (
+    <div className="header-main-div">
+      <div className="header-body">
+        <div className="header-body-title">
+          <img className="header-logo" src={headerLogo} alt="No Image" />
+          <Link to="./FrontPage">Cyber Impact</Link>
+        </div>
 
-				<button className="header-dropdown-button" onClick={dropdownHandler}>
-					≡
-				</button>
+        <button className="header-dropdown-button" onClick={dropdownHandler}>
+          ≡
+        </button>
 
-				{/* Buttons for Header */}
-				<div className="header-buttons">
-					{props.MarketProfileBtn ? (
-						<>
-							<div className="header-body-components">
-								<Link to="/MarketProfile">
-									<div className="header-body-components-item">Market Profile</div>
-								</Link>
-							</div>{" "}
-						</>
-					) : (
-						""
-					)}
+        {/* Buttons for Header */}
+        <div className="header-buttons">
+          {props.MarketProfileBtn ? (
+            <>
+              <div className="header-body-components">
+                <Link to="/MarketProfile">
+                  <div className="header-body-components-item">
+                    Market Profile
+                  </div>
+                </Link>
+              </div>{" "}
+            </>
+          ) : (
+            ""
+          )}
 
-					<div className="header-body-components">
-						<a href="./" onClick={LogoutHandler}>
-							<div className="header-body-components-item">Log Out</div>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div style={dropdownListStyle} className="header-dropdown">
-				<a href="./" onClick={LogoutHandler}>
-					<div className="header-dropdown-items">Log Out</div>
-				</a>
+          <div className="header-body-components">
+            <Link to="./" onClick={LogoutHandler}>
+              <div className="header-body-components-item">Log Out</div>
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div style={dropdownListStyle} className="header-dropdown">
+        <Link to="./" onClick={LogoutHandler}>
+          <div className="header-dropdown-items">Log Out</div>
+        </Link>
 
-				{props.MarketProfileBtn ? (
-					<>
-						<a href="./MarketProfile">
-							<div className="header-dropdown-items">Market Profile</div>
-						</a>
-					</>
-				) : (
-					""
-				)}
-			</div>
-		</div>
-	);
+        {props.MarketProfileBtn ? (
+          <>
+            <Link to="./MarketProfile">
+              <div className="header-dropdown-items">Market Profile</div>
+            </Link>
+          </>
+        ) : (
+          ""
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Header;
