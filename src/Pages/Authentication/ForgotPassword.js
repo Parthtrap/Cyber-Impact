@@ -1,17 +1,14 @@
 import { ValidateEmail } from "./../../HelperClasses/HelperFunctions";
-import React from "react";
+import React, { useRef } from "react";
 import "./ForgotPassword.css";
 
 const ForgotPassword = () => {
-	let Email = "";
-
-	const updateEmail = (event) => {
-		Email = event.target.value;
-	};
+	const emailInputRef = useRef();
 
 	const submitPressed = (event) => {
 		event.preventDefault();
-		if (!ValidateEmail(Email)) alert("Enter a Valid Email!");
+		const Email = emailInputRef.current.value;
+		if (!ValidateEmail(Email)) alert("Please Enter a Valid Email!");
 		else console.log(Email);
 	};
 
@@ -22,7 +19,7 @@ const ForgotPassword = () => {
 					<h1 className="forgotpassword-form-title">FORGOT PASSWORD?</h1>
 					<form method="post">
 						<div class="forgot-password-txt-field">
-							<input type="text" onChange={updateEmail} required />
+							<input type="text" ref={emailInputRef} required />
 							<span></span>
 							<label> Email Adress</label>
 						</div>
