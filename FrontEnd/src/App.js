@@ -16,13 +16,13 @@ import FavouritesPage from "./Pages/Portal/FavouritesPage";
 function App() {
 	const auth = useContext(AuthContext);
 
-  return !auth.isLoggedIn ? (
-    <>
-      <Switch>
-        <Route exact path="/">
-          <Navbar login={true} />
-          <HomePage />
-        </Route>
+	return !auth.isLoggedIn ? (
+		<>
+			<Switch>
+				<Route exact path="/">
+					<Navbar login={true} />
+					<HomePage />
+				</Route>
 
 				<Route exact path="/Login">
 					<Navbar login={false} />
@@ -39,7 +39,6 @@ function App() {
 					<ForgotPassword />
 				</Route>
 
-<<<<<<< HEAD
 				<Route exact path="/*">
 					<Redirect to="/" />
 				</Route>
@@ -64,48 +63,16 @@ function App() {
 					<Header MarketProfileBtn={true} />
 					<ProfileView />
 				</Route>
+				<Route exact path="/FavouritesPage">
+					<Header MarketProfileBtn={true} />
+					<FavouritesPage />
+				</Route>
 				<Route exact path="/*">
 					<Redirect to="/" />
 				</Route>
 			</Switch>
 		</>
 	);
-=======
-        <Route exact path="/*">
-          <Redirect to="/" />
-        </Route>
-      </Switch>
-    </>
-  ) : (
-    <>
-      <Switch>
-        <Route exact path="/">
-          <Header MarketProfileBtn={true} />
-          <FrontPage />
-        </Route>
-        <Route exact path="/MarketProfile">
-          <Header MarketProfileBtn={false} />
-          <MarketProfile />
-        </Route>
-        <Route exact path="/ProfileForm">
-          <Header MarketProfileBtn={true} />
-          <ProfileForm />
-        </Route>
-        <Route exact path="/ProfileView">
-          <Header MarketProfileBtn={true} />
-          <ProfileView />
-        </Route>
-        <Route exact path="/FavouritesPage">
-          <Header MarketProfileBtn={true} />
-          <FavouritesPage />
-        </Route>
-        <Route exact path="/*">
-          <Redirect to="/" />
-        </Route>
-      </Switch>
-    </>
-  );
->>>>>>> 613e130fb1a9a49ff6a5f46d892d737a5eabf26d
 }
 
 export default App;
