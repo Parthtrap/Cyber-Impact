@@ -4,9 +4,8 @@ const mongoose = require("mongoose");
 //Schema for reviews
 const reviewSchema = new mongoose.Schema({
   raterID: {
-    type: mongoose.Types.ObjectId,
-    required: true,
-    ref: "User",
+    type: String,
+    required: true
   },
   rating: {
     type: Number,
@@ -25,7 +24,7 @@ const marketSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  imageURL: { type: String, required: true },
+  imageURL: { type: String },
   address: { type: String, required: true },
   location: {
     lat: { type: Number },
@@ -48,7 +47,7 @@ const marketSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  ownerId: { type: mongoose.Types.ObjectId, required: true, ref: "User" },
+  ownerId: { type: String, required: true },
 });
 
 //exporting Market modal

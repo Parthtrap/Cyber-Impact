@@ -1,4 +1,5 @@
 //extracting the user modal
+const { findOne } = require("../models/user");
 const User = require("../models/user");
 
 //post signin request function
@@ -55,6 +56,8 @@ const addUser = async (req, res, next) => {
     res.status(500).json({ error: err.message });
   }
 
+  console.log("User added");
+  console.log(newUser);
   //resending data with 'OK' status code
   res.status(201).json({ user: newUser });
   // res.status(201).json({user : newUser.toObject({ getters: true})})     // toObject() is method in moongoose
@@ -70,25 +73,94 @@ const verifyUser = async (req, res, next) => {
     existingUser = await User.findOne({ email: email });
   } catch (err) {
     console.log(err.message);
-    res.status(500).json({ error : "Loggin in failed, please try again later"});
+    res.status(500).json({ error: "Loggin in failed, please try again later" });
   }
 
-  if (!existingUser){
-    console.log('No user exists with this email, please sign up');
-    res.status(401).json({ error : 'No user exists with this email, please sign up'});
+  if (!existingUser) {
+    console.log("No user exists with this email, please sign up");
+    res
+      .status(401)
+      .json({ error: "No user exists with this email, please sign up" });
   }
-  if(existingUser.password !== password) {
-    console.log('Invalid credentials, could not log you in.');
-    res.status(401).json({ error : 'Invalid credentials, could not log you in'});
+  if (existingUser.password !== password) {
+    console.log("Invalid credentials, could not log you in.");
+    res
+      .status(401)
+      .json({ error: "Invalid credentials, could not log you in" });
   }
 
-
+  console.log("User found");
+  console.log(existingUser);
   res.status(201).json({
-    message: 'Logged in!',
-    user: existingUser
+    message: "Logged in!",
+    user: existingUser,
   });
-
 };
 
+const toggleAddFavMarket = async (req, res) => {
+  const { userId, marketId } = req.body;
+
+  let user;
+
+  try {
+    user = await User.findOne({ _id: userId });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: err.message });
+  }
+
+  if (!user) {
+    const err = "No user with this id exist";
+    console.log(err);
+    res.status(401).json({ error: err });
+  }
+
+  const existingMarket = user.markets.find((mid) => {
+    return mid == marketId;
+  });
+  console.log("Existing market id : ", existingMarket);
+
+  if (existingMarket) {
+    console.log("Market already in favourites");
+
+    //removing market to user collections favuorites array
+    try {
+      const userFav = await User.updateOne(
+        { _id: userId },
+        {
+          $pull: {
+            markets: marketId,
+          },
+        }
+      );
+      console.log("Market id removed from fav");
+      console.log(userFav);
+      res.status(201).json({message : "Removed from fav", user: user});
+
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
+  //adding market to user collections favuorites array
+  try {
+    const userFav = await User.updateOne(
+      { _id: userId },
+      {
+        $push: {
+          markets: marketId,
+        },
+      }
+    );
+    console.log("Market id added to fav");
+    console.log(userFav);
+  } catch (err) {
+    console.log(err.message);
+  }
+  //resending data with 'OK' status code
+  res.status(201).json({message: "Added to fav", user: user});
+};
+
+exports.toggleAddFavMarket = toggleAddFavMarket;
 exports.signup = addUser;
 exports.login = verifyUser;

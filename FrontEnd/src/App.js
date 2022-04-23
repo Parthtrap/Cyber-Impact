@@ -15,7 +15,7 @@ import ProfileView from "./Pages/Portal/ProfileView";
 function App() {
   const auth = useContext(AuthContext);
 
-  return auth.isLoggedIn ? (
+  return !auth.isLoggedIn ? (
     <>
       <Switch>
         <Route exact path="/">
@@ -58,7 +58,7 @@ function App() {
           <Header MarketProfileBtn={true} />
           <ProfileForm />
         </Route>
-        <Route exact path="/ProfileView">
+        <Route exact path="/ProfileView/:mid">
           <Header MarketProfileBtn={true} />
           <ProfileView />
         </Route>

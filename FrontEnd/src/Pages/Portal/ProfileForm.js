@@ -4,8 +4,10 @@ import Modal from "../../Components/ui/Modal";
 import MapForm from "../../Components/shared/MapForm";
 import BackDrop from "../../Components/ui/Backdrop";
 import AuthContext from "../../context/auth-context";
+import { useHistory } from "react-router-dom";
 
 const ProfileForm = () => {
+  const history = useHistory();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const auth = useContext(AuthContext);
   const latInputRef = useRef();
@@ -56,6 +58,7 @@ const ProfileForm = () => {
   );
   const [selectedCategory, setSelectedCategory] = useState("No Category");
   const [selectedProfession, setSelectedProfession] = useState("No Profession");
+  const [openingTiming, setOpeningTiming] = useState("");
 
   const categorySelect = (e) => {
     setProfessionArray(categoryStorage.Professions[e.target.value]);
@@ -67,7 +70,12 @@ const ProfileForm = () => {
     setSelectedProfession(e.target.value);
   };
 
+  const OpeningTimeChange = (e) => {
+    setOpeningTiming(e.target.value);
+  };
+
   const submitHandler = async (event) => {
+    console.log(auth.userId);
     event.preventDefault();
     const BusinessName = businessNameInputRef.current.value;
     const PhoneNumber = phoneNumberInputRef.current.value;
@@ -77,21 +85,19 @@ const ProfileForm = () => {
     const Profession = professionInputRef.current.value;
     const OwnerId = auth.userId;
 
-    // const {title, phonenum, address, lat, lng, openingTime, closingTime, profession, ownerId} = req.body;
-
-    const marketdata = {
-      title: BusinessName,
-      phonenum: PhoneNumber,
-      address: Address,
-      lat: latInputRef.current.value,
-      lng: longInputRef.current.value,
-      openingTime: OpeningTime,
-      closingTime: ClosingTime,
-      profession: Profession,
-      ownerId: OwnerId,
-    };
-
     try {
+      const marketdata = JSON.stringify({
+        title: BusinessName,
+        phonenum: PhoneNumber,
+        address: Address,
+        lat: latInputRef.current.value,
+        lng: longInputRef.current.value,
+        openingTime: OpeningTime,
+        closingTime: ClosingTime,
+        profession: Profession,
+        ownerId: OwnerId,
+      });
+
       const response = await fetch("http://localhost:5000/api/market/", {
         method: "POST",
         headers: {
@@ -104,6 +110,7 @@ const ProfileForm = () => {
 
       if (response.status === 201) {
         console.log(responseData);
+        history.replace("/MarketProfile");
       } else {
         console.log(responseData.error);
       }
@@ -153,7 +160,12 @@ const ProfileForm = () => {
             </div>
 
             <div class="profile-creator-txt-field">
-              <input type="number" ref={phoneNumberInputRef} required />
+              <input
+                type="number"
+                ref={phoneNumberInputRef}
+                required
+                minLength={10}
+              />
               <span></span>
               <label>Enter Phone Number</label>
             </div>
@@ -177,7 +189,12 @@ const ProfileForm = () => {
             </button>
 
             <div class="profile-creator-time-field">
-              <input type="time" ref={openingTimeInputRef} required />
+              <input
+                type="time"
+                ref={openingTimeInputRef}
+                onChange={OpeningTimeChange}
+                required
+              />
               <span></span>
               <label>Enter Opening Time</label>
             </div>
