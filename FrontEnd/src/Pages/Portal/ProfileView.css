@@ -1,13 +1,13 @@
-.profile-view-body{
-    height: calc(100vh - 80px);
+.profile-view-body {
+	height: calc(100vh - 80px);
 	background: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
 	mix-blend-mode: difference;
 	padding: 20px;
 }
 
-.profile-view-main-display-place-thingy{
-    height: 82vh;
-	overflow-y: hidden;
+.profile-view-main-display-place-thingy {
+	height: fit-content;
+	overflow: scroll;
 	margin-top: 10px;
 	margin: auto;
 	width: 95%;
@@ -22,27 +22,37 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-size: 50px;
-	font-weight: 400;
+	font-weight: 600;
 	border-bottom: 6px solid transparent;
 	border-image: linear-gradient(270deg, #29ffed 0%, #d260ff 99.99%);
 	border-image-slice: 1;
+	width: 100%;
 }
 
-.profile-view-info{
-    display: flex;
-    flex-wrap: wrap;
+.profile-view-info {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.profile-view-text-section{
-    width: 50%;
-    height: 100%;
-    border-right: 5px white solid;
+.profile-view-text-section {
+	width: 50%;
+	min-width: 400px;
+	font-size: 18px;
+	font-weight: 600;
+	color: azure;
+	padding: 40px;
 }
 
-.profile-view-texts{
-    font-size: 32px;
-    font-weight: 600;
-    color: azure;
-    margin-left: 40px;
-    padding: 10px;
+.profile-view-review-section {
+	width: 50%;
+	min-width: 400px;
+}
+
+.profile-view-review-scrolling {
+	margin: 5% 5%;
+	width: 90%;
+	height: 85%;
+	background-color: rgba(0, 0, 0, 0.43);
+	border-radius: 20px;
 }
