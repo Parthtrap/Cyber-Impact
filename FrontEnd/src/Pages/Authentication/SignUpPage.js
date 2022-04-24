@@ -83,7 +83,7 @@ const SignUpPage = () => {
 						</div>
 
 						<div class="signup-page-txt-field">
-							<input ref={passwordInputRef} type="password" required />
+							<input ref={passwordInputRef} type="password"required />
 							<span></span>
 							<label> Password</label>
 						</div>

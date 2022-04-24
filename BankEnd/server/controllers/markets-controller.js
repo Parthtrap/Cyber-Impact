@@ -70,9 +70,11 @@ const addMarket = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 
+  let user;
+
   //adding market to user collections market array
   try {
-    const user = await User.updateOne(
+    user = await User.updateOne(
       { _id: ownerId },
       {
         $push: {
@@ -82,13 +84,20 @@ const addMarket = async (req, res) => {
     );
     console.log("Market id added to user");
     console.log(user);
+
+    try {
+      user = await User.findOne({ _id: ownerId });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ error: err.message });
+    }
+
+    //resending data with 'OK' status code
+    res.status(201).json({ market: newMarket, user: user });
   } catch (err) {
     console.log(err.message);
     res.status(500).json({ error: err.message });
   }
-
-  //resending data with 'OK' status code
-  res.status(201).json({ market: newMarket });
 };
 
 //funstion to find all markets of a user
@@ -144,9 +153,20 @@ const getMarket = async (req, res) => {
 
 //funstion to delete market with specific id
 const deleteMarket = async (req, res) => {
-  const marketId = req.param.mid;
+  const marketId = req.params.mid;
 
   let market;
+  let user;
+  let marketForOwner;
+  try {
+    marketForOwner = await Market.findOne({ _id: marketId });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ error: err.message });
+  }
+
+  const ownerId = marketForOwner.ownerId;
+
   try {
     market = await Market.deleteOne({ _id: marketId });
   } catch (err) {
@@ -157,11 +177,38 @@ const deleteMarket = async (req, res) => {
   if (!market) {
     console.log("No market found with this id");
     res.status(401).json({ error: "No market found with this id" });
+    return;
   }
 
-  console.log("Market with this id found and deleted");
-  console.log(market);
-  res.status(201).json({ message: "deleted", market: market });
+  //deleting market to user collections market and favourites array
+  try {
+    user = await User.updateOne(
+      { _id: ownerId },
+      {
+        $pull: {
+          markets: marketForOwner._id,
+          favourites: marketForOwner._id,
+        },
+      }
+    );
+    console.log("Market id added to user");
+    console.log(user);
+
+    try {
+      user = await User.findOne({ _id: ownerId });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ error: err.message });
+    }
+
+    console.log("Market with this id found and deleted");
+    console.log(market);
+
+    res.status(201).json({ message: "deleted", market: market, user: user });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ error: err.message });
+  }
 };
 
 //funstion to find filtered markets for a filter query

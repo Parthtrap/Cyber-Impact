@@ -2,9 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AuthContext from "../../context/auth-context";
 import "./ProfileView.css";
+import { useHistory } from "react-router-dom";
 
 const ProfileView = () => {
+  const history = useHistory();
   const [isFavourite, setFavourite] = useState(false);
+  const [isOwner, setOwner] = useState(false);
   const auth = useContext(AuthContext);
   console.log("fav", isFavourite);
 
@@ -36,6 +39,7 @@ const ProfileView = () => {
       return;
     }
   };
+
   const [data, setData] = useState({
     BusinessID: "randomID",
     BusinessName: "PlaceHolder",
@@ -98,10 +102,18 @@ const ProfileView = () => {
             Profession: market.profession,
             ImageURL: market.imageURL,
           };
+          const isOwner = auth.user.markets.find((data) => {
+            console.log(data, market._id, data === market._id);
+            return data === market._id;
+          });
           const isFav = auth.user.favourites.find((data) => {
             console.log(data, market._id, data === market._id);
             return data === market._id;
           });
+          if (isOwner) {
+            setOwner(true);
+          }
+
           if (isFav) {
             setFavourite(true);
           }
@@ -115,6 +127,29 @@ const ProfileView = () => {
     };
     fetchMarket();
   }, [marketId]);
+
+  const deleteProfile = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/market/${marketId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      const responseData = await response.json();
+      if (response.status === 201) {
+        auth.login(responseData.user);
+        console.log(responseData);
+        history.replace("/MarketProfile");
+      } else {
+        console.log(responseData.error);
+      }
+    } catch (err) {
+      console.log(err);
+      return;
+    }
+  };
 
   console.log(data);
   return (
@@ -157,6 +192,11 @@ const ProfileView = () => {
           <div className="profile-view-review-section">
             <div className="profile-view-review-scrolling"></div>
           </div>
+          {isOwner ? (
+            <button onClick={deleteProfile} className="dlt btn pfbtn">
+              Delete
+            </button>
+          ) : null}
         </div>
       </div>
     </div>

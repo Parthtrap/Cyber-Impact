@@ -35,6 +35,10 @@
 	justify-content: center;
 }
 
+.pfbtn{
+	margin-bottom: 1vh;
+}
+
 .profile-view-text-section {
 	width: 50%;
 	min-width: 400px;

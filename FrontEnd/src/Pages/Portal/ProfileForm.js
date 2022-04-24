@@ -76,6 +76,11 @@ const ProfileForm = () => {
 
   const submitHandler = async (event) => {
     console.log(auth.userId);
+
+    if(professionInputRef.current.value === "No Professions"){
+      alert("Select a profession");
+      return;
+    }
     event.preventDefault();
     const BusinessName = businessNameInputRef.current.value;
     const PhoneNumber = phoneNumberInputRef.current.value;
@@ -109,6 +114,7 @@ const ProfileForm = () => {
       const responseData = await response.json();
 
       if (response.status === 201) {
+        auth.login(responseData.user);
         console.log(responseData);
         history.replace("/MarketProfile");
       } else {
