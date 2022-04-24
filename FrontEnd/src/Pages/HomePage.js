@@ -140,10 +140,10 @@ const HomePage = () => {
           </div>
           <div className="about-website-info">
             <div className="about-website-info-title">Our Team</div>
-            <li>Parth Mittal(Leader)</li>
-            <li>Ariyan Habib Seikh(Leader)</li>
-            <li>Parth Mittal(Leader)</li>
-            <li>Parth Mittal(Leader)</li>
+            <li>Parth Mittal(Team Leader)</li>
+            <li>Rishav Raj</li>
+            <li>Ariyan Habib Seikh</li>
+            <li>Ayan Habib Seikh</li>
           </div>
         </div>
         <br />

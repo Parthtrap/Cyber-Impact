@@ -1,5 +1,5 @@
 //extracting the user modal
-const { findOne } = require("../models/user");
+const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 
 //post signin request function
@@ -39,11 +39,26 @@ const addUser = async (req, res, next) => {
     res.status(422).json({ error: "A user with this username already exists" });
   }
 
+  async function hashPassword() {
+    const saltRounds = 10;
+
+    const hashedPassword = await new Promise((resolve, reject) => {
+      bcrypt.hash(password, saltRounds, function (err, hash) {
+        if (err) reject(err);
+        resolve(hash);
+      });
+    });
+
+    return hashedPassword;
+  }
+
+  const hashedPassword = await hashPassword();
+
   //creating newUser object
   const newUser = new User({
     username: name,
     email,
-    password,
+    password: hashedPassword,
     favourites: [],
     markets: [],
   });
@@ -81,12 +96,33 @@ const verifyUser = async (req, res, next) => {
     res
       .status(401)
       .json({ error: "No user exists with this email, please sign up" });
+    return;
   }
-  if (existingUser.password !== password) {
+
+  async function checkHashPassword() {
+    const isMatching = await new Promise((resolve, reject) => {
+      bcrypt.compare(
+        password,
+        existingUser.password,
+        function (error, isMatch) {
+          if (error) reject(error);
+          resolve(isMatch);
+        }
+      );
+    });
+
+    return isMatching;
+  }
+
+  const isPassMatching = await checkHashPassword();
+  console.log(isPassMatching);
+
+  if (isPassMatching) {
     console.log("Invalid credentials, could not log you in.");
     res
       .status(401)
       .json({ error: "Invalid credentials, could not log you in" });
+    return;
   }
 
   console.log("User found");

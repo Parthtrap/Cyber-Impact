@@ -15,8 +15,6 @@ export const AuthContextProvider = (props) => {
 
   const login = (user) => {
     localStorage.setItem("user", JSON.stringify(user));
-    console.log(localStorage.getItem("user"));
-    console.log(user);
     setUserId(user._id);
     setUser(user);
     setIsLoggedIn(true);
@@ -33,7 +31,6 @@ export const AuthContextProvider = (props) => {
   if (!isLoggedIn) {
     const user = localStorage.getItem("user");
     const userData = JSON.parse(user);
-    console.log("not logged in",userData);
     if (userData) {
       login(userData);
     }
