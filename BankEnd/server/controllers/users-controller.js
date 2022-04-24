@@ -15,6 +15,7 @@ const addUser = async (req, res, next) => {
     console.log(err.message);
     res.status(500).json({ error: err.message });
   }
+  
 
   //checking existing userEmail
   if (existingUserEmail) {
@@ -22,6 +23,8 @@ const addUser = async (req, res, next) => {
     console.log(existingUserEmail);
     res.status(422).json({ error: "A user with this email already exists" });
   }
+
+
 
   //finding existing user with same username;
   let existingUserName;

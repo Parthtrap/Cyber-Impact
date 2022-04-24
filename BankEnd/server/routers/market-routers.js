@@ -11,5 +11,6 @@ router.get("/user/:uid", marketController.getUserMarkets);
 router.get("/:mid",marketController.getMarket);
 router.delete("/:mid", marketController.deleteMarket);
 router.post("/filter", marketController.getFilteredMarkets);
+router.post("/search", marketController.getSearchedMarkets);
 
 module.exports = router;

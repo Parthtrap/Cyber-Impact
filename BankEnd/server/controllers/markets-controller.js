@@ -258,6 +258,68 @@ const getFilteredMarkets = async (req, res) => {
   // try {} catch(err){};
 };
 
+
+//funstion to find searched markets for a filter query
+const getSearchedMarkets = async (req, res) => {
+  const {word} = req.body;
+
+  let filteredMarkets;
+
+  try {
+    var regex = new RegExp(word, "i");
+
+    filteredMarkets = await Market.find({ title : regex }).sort({
+      rating: -1,
+    });
+    console.log("Got Data");
+    res.status(201).json({ filteredMarkets: filteredMarkets });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ error: err.message });
+  }
+
+  //if no profession selected
+  // if (!profession) {
+  //   //and filter with rating
+  //   if (filter === "Rating") {
+  //     try {
+  //       filteredMarkets = await Market.find({}).sort({ rating: -1 }).limit(30);
+  //       console.log("Got Data");
+  //     } catch (err) {
+  //       console.log(err.message);
+  //       res.status(500).json({ error: err.message });
+  //     }
+
+  //     res.status(201).json({ filteredMarkets: filteredMarkets });
+  //   }
+
+  //   //when filtered with distance
+  //   // if(filter === "Distance"){
+
+  //   // }
+  // }
+
+  // //if profession is selected
+  // //and rating is also selected
+  // if (filter === "Rating") {
+  //   try {
+  //     filteredMarkets = await Market.find({ profession: profession }).sort({
+  //       rating: -1,
+  //     });
+  //     console.log("Got Data");
+  //   } catch (err) {
+  //     console.log(err.message);
+  //     res.status(500).json({ error: err.message });
+  //   }
+
+  //   res.status(201).json({ filteredMarkets: filteredMarkets });
+  // }
+
+  //with distance
+  // try {} catch(err){};
+};
+
+exports.getSearchedMarkets = getSearchedMarkets;
 exports.getFilteredMarkets = getFilteredMarkets;
 exports.deleteMarket = deleteMarket;
 exports.getMarket = getMarket;

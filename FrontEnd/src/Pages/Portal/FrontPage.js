@@ -4,34 +4,6 @@ import ProfileCards from "../../Components/ProfileCards";
 
 const FrontPage = () => {
   const [markets, setMarkets] = useState([]);
-
-  //   useEffect(() => {
-  // const searchQuery = JSON.stringify({
-  //   profession: null,
-  //   filter: "Rating",
-  // });
-
-  //     console.log(searchQuery);
-
-  // fetch("http://localhost:5000/api/market/filter", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-type": "application/json",
-  //   },
-  //   body: searchQuery,
-  // }).then((response, err) => {
-  //       if (response.status === 201) {
-  //         response.json().then((data) => {
-  //           console.log(data);
-  //           setMarkets(data.filteredMarkets);
-  //           return;
-  //         });
-  //       } else {
-  //         console.log(err);
-  //         return;
-  //       }
-  //     });
-  //   });
   useEffect(() => {
     const fetchMarket = async () => {
       const searchQuery = JSON.stringify({
@@ -230,8 +202,36 @@ const FrontPage = () => {
     setSearchIconStyle(hiddenIconStyle);
   };
 
-  const SearchButtonPressed = () => {
-    console.log(searchBarText);
+  const SearchButtonPressed = async () => {
+
+    const word = searchBarText;
+
+    try {
+      const searchQuery = JSON.stringify({
+        word: word,
+      });
+
+      console.log(searchQuery);
+
+      const response = await fetch("http://localhost:5000/api/market/search", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: searchQuery,
+      });
+
+      const responseData = await response.json();
+      if (response.status === 201) {
+        console.log(responseData);
+        setMarkets(responseData.filteredMarkets);
+      } else {
+        console.log(responseData.error);
+      }
+    } catch (err) {
+      console.log(err);
+      return;
+    }
   };
 
   return (
