@@ -11,19 +11,19 @@
 
   
 ## Demo Video Link:
-  [https://drive.google.com/file/d/1wNeeRIhSVn-m658xuI3Qkc5PJKKDykfl/view?usp=sharing](https://drive.google.com/file/d/1wNeeRIhSVn-m658xuI3Qkc5PJKKDykfl/view?usp=sharing)
+  <a href="https://drive.google.com/file/d/1wNeeRIhSVn-m658xuI3Qkc5PJKKDykfl/view?usp=sharing" target="_blank">https://drive.google.com/file/d/1wNeeRIhSVn-m658xuI3Qkc5PJKKDykfl/view?usp=sharing</a>
   
 ## Presentation Link:
-  [https://drive.google.com/file/d/1rTTJmrRH4pdBZA1NowRHYWbt_-ovo9Lt/view?usp=sharing](https://drive.google.com/file/d/1rTTJmrRH4pdBZA1NowRHYWbt_-ovo9Lt/view?usp=sharing)
+  <a href="https://drive.google.com/file/d/1wNeeRIhSVn-m658xuI3Qkc5PJKKDykfl/view?usp=sharing" target="_blank">https://drive.google.com/file/d/1rTTJmrRH4pdBZA1NowRHYWbt_-ovo9Lt/view?usp=sharing</a>
   
 ## Technology Stack:
   1) HTML
   2) CSS
-  3) MERN
-      A) MongoDB
-      B) Express JS
-      C) React JS
-      D) Node JS
+  3) MERN <br/>
+      A) MongoDB <br/>
+      B) Express JS <br/>
+      C) React JS <br/>
+      D) Node JS <br/>
   
 ## Contributors:
 
