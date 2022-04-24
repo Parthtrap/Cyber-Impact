@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+<h1 align="center">Cyber Impact</h1>
+<h4 align="center">Lets get Vocal for Local</h4>
+<p align="center">
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a href="https://hack36.com"> <img src="https://cutt.ly/BuiltAtHack36" height=24px> </a>
 
-## Available Scripts
 
-In the project directory, you can run:
+## Introduction:
+  Local businesses have no platform to promote their business. Bigger businesses have their own websites, adverts and other promotional contents. But Local businesses are the ones people trust the most when it comes to small professions like tailors, Book Stores, Medical Stores etc. They are overlooked even when they are just within the reach of the customers and provide cheaper and better services. Cyber Impact is a platform where everyone can promote their small businesses by creating their own profile and place their business in one of the many provided categories so that the users of the website can look at all the local businesses in his/her area and choose the suitable one based on the rating or distance. Thus allowing the locals to expand their business to a bigger public and providing ease to users in finding just the shop they are looking for.
 
-### `npm start`
+  
+## Demo Video Link:
+  [https://drive.google.com/file/d/1wNeeRIhSVn-m658xuI3Qkc5PJKKDykfl/view?usp=sharing](https://drive.google.com/file/d/1wNeeRIhSVn-m658xuI3Qkc5PJKKDykfl/view?usp=sharing)
+  
+## Presentation Link:
+  [https://drive.google.com/file/d/1rTTJmrRH4pdBZA1NowRHYWbt_-ovo9Lt/view?usp=sharing](https://drive.google.com/file/d/1rTTJmrRH4pdBZA1NowRHYWbt_-ovo9Lt/view?usp=sharing)
+  
+## Technology Stack:
+  1) HTML
+  2) CSS
+  3) MERN
+      A) MongoDB
+      B) Express JS
+      C) React JS
+      D) Node JS
+  
+## Contributors:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Team Name: Cyber Impact
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* [Parth Mittal](https://github.com/Parthtrap)
+* [Rishav Raj](https://github.com/Kitashi14)
+* [Ariyan Habib Seikh](https://github.com/Ariyan-Sk)
+* [Ayan Habib Seikh](https://github.com/ayansk2002)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Made at:
+<a href="https://hack36.com"> <img src="https://cutt.ly/BuiltAtHack36" height=24px> </a>
