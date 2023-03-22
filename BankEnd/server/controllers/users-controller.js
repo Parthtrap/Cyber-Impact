@@ -120,7 +120,7 @@ const verifyUser = async (req, res, next) => {
   const isPassMatching = await checkHashPassword();
   console.log(isPassMatching);
 
-  if (isPassMatching) {
+  if (!isPassMatching) {
     console.log("Invalid credentials, could not log you in.");
     res
       .status(401)
@@ -169,7 +169,7 @@ const toggleAddFavMarket = async (req, res) => {
         { _id: userId },
         {
           $pull: {
-            favourites: marketId,
+            favourites: marketId, 
           },
         }
       );

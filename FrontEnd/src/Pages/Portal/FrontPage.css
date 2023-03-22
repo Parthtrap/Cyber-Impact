@@ -141,10 +141,7 @@
 	width: 100%;
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.43)), linear-gradient(270deg, #29ffed 0%, #d260ff 100%);
 	border-radius: 30px;
-	overflow-y: scroll;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
+	 
 	padding: 30px;
 }
 .frontpage-filtered-list-display::-webkit-scrollbar {
